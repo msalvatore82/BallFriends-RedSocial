@@ -14,7 +14,7 @@ import isolgo from "../../Asset/isologo.png";
 import { Link, useNavigate } from "react-router-dom";
 
 const Header = () => {
-  const navigate = useNavigate();
+     useNavigate();
   const { Search } = Input;
   return (
     <div className="header-nav">

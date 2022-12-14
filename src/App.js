@@ -15,12 +15,12 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        {user ? <PageTitle /> : <Header/>}
+        {user ? <PageTitle /> : <Header />}
         <Routes>
-        <Route path="/home" element={<Home />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/profile" element={<Profile />} /> 
+          <Route path="/profile" element={<Profile />} />
         </Routes>
       </BrowserRouter>
     </div>

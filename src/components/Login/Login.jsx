@@ -2,15 +2,19 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { login } from "../../features/auth/authSlice";
 import "./Login.scss";
-import { Form, Input } from "antd";
+import { Button, Form, Input } from "antd";
 import {
   EyeInvisibleOutlined,
   EyeTwoTone,
   UserOutlined,
 } from "@ant-design/icons";
 import logo from "../../Asset/logoconletras.png"
+import Link from "antd/es/typography/Link";
+import { useNavigate } from "react-router";
 
 const Login = () => {
+useNavigate();
+
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -38,11 +42,7 @@ const Login = () => {
     e.preventDefault();
     dispatch(login(formData));
     clearState()
-
-    console.log("formData", formData);
   };
-  
-
 
   return (
     <div className="container-form">
@@ -93,13 +93,14 @@ const Login = () => {
               />
             </Form.Item>
           </div>
-          <button type="submit" className="button-login">
+          <button className="button-login">
             Iniciar sesion
           </button>
           <p className="password-missed">¿Has olvidado tu contraseña?</p>
           <hr className="line-login"/>
-          <button type="submit" className="button-create-acount">
-            {" "}
+          <button  onClick={() => {
+                  <Link to="/register" />;
+                }}  className="button-create-acount" >  
             Crear nueva cuenta
           </button>
         </form>
@@ -109,3 +110,6 @@ const Login = () => {
 };
 
 export default Login;
+
+
+
