@@ -1,0 +1,65 @@
+@import "colors";
+
+.header-nav{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 5px;
+    padding: 5px;
+    
+}
+
+    .nav{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+       flex-direction: row;
+       width: 100%;
+       justify-content:space-around;
+       line-height: 1.34;
+       margin: 0;
+       padding: 0;
+       direction: ltr;
+    }
+
+    .nav-left{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        align-items: center;
+        align-content: center;
+        justify-content: flex-start;
+        gap: 15px;
+        
+    
+
+        .isologo{
+            width: 30px;
+        }  
+    }
+    
+    .nav-central{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        align-items: center;
+        align-content: center;
+        justify-content: center;
+        padding-right: 150px;
+        padding-left: 150px;
+        gap: 15px;
+    }
+    .nav-right{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        align-items: center;
+        align-content: center;
+        justify-content: flex-end;
+        padding-inline-start: 260px;
+        gap: 15px;
+
+    }
+
+

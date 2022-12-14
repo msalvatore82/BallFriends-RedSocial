@@ -1,43 +1,95 @@
-.container-form{
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
+@import "colors";
+
+.container-form {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+
+  h2 {
+    font-size: 35px;
+    color: $primary
+  }
+  h5 {
+    font-size: 15px;
+    width: 300px;
+  }
+
+  .container-form-login {
     align-items: center;
+    background-color: #fff;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+    box-sizing: border-box;
+    margin: 40px 0 0;
+    padding: 20px 0 28px;
+    width: 396px;
+  }
 
-    h2{
-        font-size: 35px;
-    }
-    h5{
-        font-size: 15px;
-        width: 300px;
-        
-    }
+  .input-mail {
+    font-size: 17px;
+    width: 330px;
+    color: #1d2129;
+    font-family: Helvetica, Arial, sans-serif;
+    height: 40px;
+  }
 
-    .container-form-login{
-        align-items: center;
-        background-color: #fff;
-        border: none;
-        border-radius: 8px;
-        box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
-        box-sizing: border-box;
-        margin: 40px 0 0;
-        padding: 20px 0 28px;
-        width: 396px;
-        
-    }
-
-    input{
-        font-size: 17px;
-        padding: 14px 16px;
-        width: 330px;
-        border: 1px solid #dddfe2;
-        color: #1d2129;
-        font-family: Helvetica, Arial, sans-serif;
-        height: 22px;
-        line-height: 16px;
-        padding: 0 8px;
-        vertical-align: middle;
-    }
-    
+  .input-password {
+    font-size: 17px;
+    width: 330px;
+    color: #1d2129;
+    font-family: Helvetica, Arial, sans-serif;
+    height: 40px;
+  }
+  .button-create-acount {
+    background-color: #36a420;
+    color: #fff;
+    font-family: inherit;
+    font-weight: bold;
+    border-radius: 5px;
+    border: none;
+    height: 40px;
+    width: 200px;
+    font-size: 20px;
+    text-align: center;
+    text-shadow: none;
+    vertical-align: middle;
+    cursor: pointer;
+    display: inline-block;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .button-login {
+    background-color: #166fe5;
+    color: #fff;
+    font-family: inherit;
+    font-weight: bold;
+    border-radius: 5px;
+    border: none;
+    width: 330px;
+    height: 40px;
+    font-size: 20px;
+    text-align: center;
+    text-shadow: none;
+    vertical-align: middle;
+    cursor: pointer;
+    display: inline-block;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .password-missed {
+    cursor: pointer;
+    color: #166fe5;
+  }
+  .line-login {
+    width: 90%;
+    background: rgb(234, 234, 234);
+  }
+  .site-form-item-icon {
+    color: gray;
+  }
+  .logo{
+    width: 300px;
+  }
 }
-
