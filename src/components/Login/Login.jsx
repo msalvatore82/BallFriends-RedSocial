@@ -2,18 +2,24 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { login } from "../../features/auth/authSlice";
 import "./Login.scss";
-import { Button, Form, Input } from "antd";
+import {Form, Input } from "antd";
 import {
   EyeInvisibleOutlined,
   EyeTwoTone,
   UserOutlined,
 } from "@ant-design/icons";
 import logo from "../../Asset/logoconletras.png"
-import Link from "antd/es/typography/Link";
-import { useNavigate } from "react-router";
+import {useNavigate } from "react-router";
+import Register from "../Register/Register";
 
 const Login = () => {
-useNavigate();
+const navigate = useNavigate();
+
+const [isModalVisible, setIsModalVisible] = useState(false);
+const showModal = () => {
+setIsModalVisible(true);
+
+};
 
   const [formData, setFormData] = useState({
     email: "",
@@ -38,10 +44,12 @@ useNavigate();
   
 
   const dispatch = useDispatch();
+  
   const onSubmit = (e) => {
     e.preventDefault();
     dispatch(login(formData));
     clearState()
+    navigate("/home")
   };
 
   return (
@@ -98,13 +106,15 @@ useNavigate();
           </button>
           <p className="password-missed">¿Has olvidado tu contraseña?</p>
           <hr className="line-login"/>
-          <button  onClick={() => {
-                  <Link to="/register" />;
-                }}  className="button-create-acount" >  
+          
+        </form>
+        <button  onClick={() => showModal()}
+                    className="button-create-acount" >  
             Crear nueva cuenta
           </button>
-        </form>
+        <Register visible={isModalVisible} setVisible={setIsModalVisible} />
       </div>
+      
     </div>
   );
 };

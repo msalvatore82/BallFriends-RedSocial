@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { register } from "../../features/auth/authSlice";
-import { Button, Modal, Form,Input } from "antd";
+import { Button, Modal, Form, Input } from "antd";
 import {
   EyeInvisibleOutlined,
   EyeTwoTone,
@@ -9,8 +9,7 @@ import {
   QuestionCircleFilled,
 } from "@ant-design/icons";
 
-const Register = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+const Register = ({ visible, setVisible })=> {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -25,10 +24,9 @@ const Register = () => {
       name: "",
       email: "",
       password: "",
-      genero: " "
+      genero: " ",
     });
   };
-  
 
   const dispatch = useDispatch();
 
@@ -42,25 +40,15 @@ const Register = () => {
   const onSubmit = (e) => {
     e.preventDefault();
     dispatch(register(formData));
-    setIsModalOpen(false);
-    clearState()
-    console.log("formData", formData);
-  };
-  const showModal = () => {
-    setIsModalOpen(true);
-  };
-  const handleCancel = () => {
-    setIsModalOpen(false);
+    setVisible(false);
+    clearState();
+  
   };
 
   return (
     <div>
-      <Button type="primary">login</Button>
-      <Button type="primary" onClick={showModal}>
-        register
-      </Button>
       <>
-        <Modal open={isModalOpen} onOk={onSubmit} onCancel={handleCancel}  key="back">
+        <Modal title="Edit Book" visible={visible} footer={[]}>
           <div>
             <h2>Registrarte</h2>
             <h5>Es rapido y facil</h5>
@@ -83,8 +71,7 @@ const Register = () => {
               <div>
                 <Form.Item>
                   <Form.Item
-                   placeholder="E-mail"
-                   
+                    placeholder="E-mail"
                     rules={[
                       {
                         type: "email",
@@ -97,11 +84,10 @@ const Register = () => {
                     ]}
                   >
                     <Input
-                    type="email"
-                    name="email"
-                    value={email}
-                    onChange={onChange}
-                     
+                      type="email"
+                      name="email"
+                      value={email}
+                      onChange={onChange}
                     />
                     <Input.Password
                       type="password"
@@ -128,11 +114,8 @@ const Register = () => {
                     value={genero}
                     onChange={onChange}
                     placeholder="genero"
-                    
                   />
                 </Form.Item>
-
-               
               </div>
               <div>
                 <p>
@@ -151,13 +134,15 @@ const Register = () => {
                 </p>
               </div>
             </Form>
+            <Button type="primary" onClick={onSubmit}> Crear Usuario</Button>
+            <Button type="primary"> Cancelar</Button>
           </>
           
         </Modal>
-      </>
+      </> 
+      
     </div>
   );
 };
 
 export default Register;
-

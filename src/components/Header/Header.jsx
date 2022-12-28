@@ -12,18 +12,22 @@ import {
 import "./Header.scss";
 import isolgo from "../../Asset/isologo.png";
 import { Link, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Header = () => {
+  const { user } = useSelector((state) => state.auth);
+
      useNavigate();
   const { Search } = Input;
   return (
     <div className="header-nav">
+      {user ? (
+        <>
       <nav className="nav">
         <div className="nav-left">
           <div className="picture">
             <Link to="/home">
-              {" "}
-              <img src={isolgo} alt="isologo" className="isologo" />
+            <img src={isolgo} alt="isologo" className="isologo" />
             </Link>
           </div>
           <div>
@@ -107,7 +111,13 @@ const Header = () => {
             </Link>
           </div>
         </div>
+        
       </nav>
+      </>
+       ) : (
+        <>
+        </>
+  )}
     </div>
   );
 };
