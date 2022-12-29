@@ -7,6 +7,8 @@
     justify-content: space-between;
     margin: 5px;
     padding: 5px;
+    background: $backgraund-color-secundary;
+    
     
 }
 
@@ -21,6 +23,8 @@
        margin: 0;
        padding: 0;
        direction: ltr;
+       background: $backgraund-color-secundary;
+       
     }
 
     .nav-left{
@@ -31,11 +35,13 @@
         align-content: center;
         justify-content: flex-start;
         gap: 15px;
+        background: $backgraund-color-secundary;
         
     
 
         .isologo{
             width: 30px;
+            background: $backgraund-color-secundary;
         }  
     }
     
@@ -49,6 +55,7 @@
         padding-right: 150px;
         padding-left: 150px;
         gap: 15px;
+        background: $backgraund-color-secundary;
     }
     .nav-right{
         display: flex;
@@ -59,6 +66,7 @@
         justify-content: flex-end;
         padding-inline-start: 260px;
         gap: 15px;
+        background: $backgraund-color-secundary;
 
     }
 

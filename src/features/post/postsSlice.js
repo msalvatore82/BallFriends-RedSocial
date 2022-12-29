@@ -1,6 +1,8 @@
+/* eslint-disable eqeqeq */
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import postsService from "./postsService";
 
+// const user = JSON.parse(localStorage.getItem("user"));
 const initialState = {
   posts: [],
   isLoading: false,
@@ -14,6 +16,23 @@ export const getAllPosts = createAsyncThunk("posts/getAllPosts", async () => {
     console.error(error);
   }
 });
+
+export const createPost = createAsyncThunk("posts/createPostByUser", async (post) => {
+  try {
+    return await postsService.createPost(post);
+  } catch (error) {
+    console.error(error);
+  }
+});
+export const like = createAsyncThunk("posts/like", async (_id) => {
+  try {
+    return await postsService.like(_id);
+  } catch (error) {
+    console.error(error);
+  }
+});
+
+
 
 // export const getPostById = createAsyncThunk("posts/getPostById", async (id)=>{
 //     try {
@@ -52,9 +71,20 @@ export const postsSlice = createSlice({
     .addCase(getAllPosts.fulfilled, (state, action) => {
       state.posts = action.payload;
     })
-//     .addCase(getAllPosts.pending, (state, action) => {
-//         state.isLoading = true;
-//       })
+    .addCase(getAllPosts.pending, (state, action) => {
+        state.isLoading = true;
+      })
+      .addCase(createPost.fulfilled, (state, action) => {
+        state.posts = [action.payload, ...state.posts];
+      })
+      .addCase(like.fulfilled,(state,action)=>{
+        state.posts = state.posts.map( post =>{
+            if(post._id == action.payload._id){
+                post = action.payload
+            }
+            return post
+        })
+      });
 //     .addCase(getPostById.fulfilled,(state,action)=>{
 //         state.post = action.payload
 //     })

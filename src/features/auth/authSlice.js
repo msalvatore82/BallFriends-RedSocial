@@ -35,7 +35,6 @@ export const register = createAsyncThunk(
 );
 export const login = createAsyncThunk(
   "auth/login",
-
   async (user) => {
     try {
       return await authService.login(user);
