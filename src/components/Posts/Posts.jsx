@@ -5,6 +5,7 @@ import Post from "./Post/Post";
 
 const Posts = () => {
   const dispatch = useDispatch();
+  
 
   useEffect(() => {
     dispatch(getAllPosts());
@@ -19,3 +20,16 @@ const Posts = () => {
 };
 
 export default Posts;
+
+
+// const dispatch = useDispatch();
+
+// const getAllpostAndComment = async () => {
+//   await  dispatch(getAllPosts());
+//   dispatch(getAllComment())
+// }
+
+// useEffect(() => {
+//   getAllpostAndComment();
+//   dispatch(reset())
+// }, []);

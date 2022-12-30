@@ -1,7 +1,7 @@
 import { AiOutlineLike, AiTwotoneLike } from "react-icons/ai";
 import { BiCommentDots } from "react-icons/bi";
-import { Button } from "antd";
-import React from "react";
+import { Button, Card } from "antd";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./Post.scss";
 import { like } from "../../../features/post/postsSlice";
@@ -10,7 +10,7 @@ const Post = () => {
   const { posts, isLoading } = useSelector((state) => state.posts);
   console.log(posts);
   const dispatch = useDispatch();
-
+  const [visible, setVisible] = useState(false);
 
   if (isLoading) {
     return <h1>Cargando...</h1>;
@@ -20,15 +20,17 @@ const Post = () => {
       {posts.map((element) => (
         <div key={element._id} className="container-post">
           <div className="container-head-post">
-            <img src="" title="imagen de usuario" /> 
-            <p>nombre de usuario</p>
-             </div>
+            <img src="" title="imagen de usuario" />
+            <p>{element.userId}</p>
+          </div>
           <div className="container-post">
             <p>{element.post}</p>
           </div>
-          <div className="container-counter" >
+          <div className="container-counter">
             <div>
-              <p>icon={
+              <p>
+                icon=
+                {
                   <AiTwotoneLike
                     style={{
                       color: "Blue",
@@ -36,7 +38,9 @@ const Post = () => {
                       border: "none",
                     }}
                   />
-                }Like {element.likes} cantidad delikes</p>
+                }
+                Like {element.likes} cantidad delikes
+              </p>
             </div>
             <div>cantidad de comentarios</div>
           </div>
@@ -57,11 +61,11 @@ const Post = () => {
                     }}
                   />
                 }
-                
               />
             </div>
             <div>
-            <Button className="container-comment"
+              <Button
+                className="container-comment"
                 onClick={() => {
                   //   createfav(product.id);
                 }}
@@ -71,6 +75,7 @@ const Post = () => {
                 }}
                 icon={
                   <BiCommentDots
+                    onClick={() => setVisible(true)}
                     style={{
                       color: "gray",
                       fontSize: "25px",
@@ -78,8 +83,16 @@ const Post = () => {
                     }}
                   />
                 }
-                
               />
+            </div>
+            <div className="flex-items" key={element._id}>
+              {element.comment.map((item) => {
+                return visible ? (
+                    <Card >
+                    <p>{item.comment}</p>
+                  </Card>
+                ) : null;
+              })}
             </div>
           </div>
         </div>
