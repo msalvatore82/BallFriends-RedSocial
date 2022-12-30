@@ -1,0 +1,34 @@
+@import "colors";
+
+.form-create-comment{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0.5rem;
+    border: 1px solid brown;
+
+    .input{
+      
+        border: 1px solid blueviolet;
+        line-height: 2rem;
+        font-size: 1rem;
+        border-radius: 0.8rem;
+        background-color: $back-search-butons;
+        
+    }
+    
+    .input:hover{
+        cursor: pointer;
+        background-color: $back-hover;
+
+    }
+    .button-comment{
+  
+        border: 1px solid blueviolet;
+        cursor: pointer;
+        
+    }
+    
+}
+
+

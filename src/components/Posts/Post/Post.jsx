@@ -5,6 +5,8 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./Post.scss";
 import { like } from "../../../features/post/postsSlice";
+import CreateComment from "../../CreateComment/CreateComment";
+import { createComment } from "../../../features/comment/commentSlice";
 
 const Post = () => {
   const { posts, isLoading } = useSelector((state) => state.posts);
@@ -54,10 +56,14 @@ const Post = () => {
                 }}
                 icon={
                   <AiOutlineLike
+                //   onClick={() => {
+                //     createComment(element?._id);
+                //   }}
                     style={{
                       color: "gray",
                       fontSize: "25px",
                       border: "none",
+                      
                     }}
                   />
                 }
@@ -85,10 +91,13 @@ const Post = () => {
                 }
               />
             </div>
-            <div className="flex-items" key={element._id}>
+          </div>
+          <div className="constainer-comment">
+            <div>
+              {visible ? <CreateComment /> : null}
               {element.comment.map((item) => {
                 return visible ? (
-                    <Card >
+                  <Card>
                     <p>{item.comment}</p>
                   </Card>
                 ) : null;

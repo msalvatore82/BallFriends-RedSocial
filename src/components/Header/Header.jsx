@@ -101,7 +101,7 @@ const Header = () => {
             />
           </div>
           <div>
-            <Link to="/profile">
+            <Link to="/user">
               {" "}
               <UserOutlined
                 style={{

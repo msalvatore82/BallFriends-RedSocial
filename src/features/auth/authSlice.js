@@ -18,7 +18,8 @@ export const authSlice = createSlice({
 
       .addCase(logout.fulfilled, (state) => {
         state.user = null;
-      });
+      })
+     
   },
 });
 
@@ -54,17 +55,7 @@ export const logout = createAsyncThunk(
     }
   }
 );
-export const getUser = createAsyncThunk(
-  "auth/getUser",
 
-  async (user) => {
-    try {
-      return await authService.getUser(user);
-    } catch (error) {
-      console.error(error);
-    }
-  }
-);
 
 
 

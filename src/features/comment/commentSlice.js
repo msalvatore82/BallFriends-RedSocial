@@ -16,6 +16,13 @@ export const getAllComment = createAsyncThunk("comment/getAllComment", async () 
     console.error(error);
   }
 });
+export const createComment = createAsyncThunk("comment/comment", async (comment) => {
+    try {
+      return await commentService.createPost(comment);
+    } catch (error) {
+      console.error(error);
+    }
+  });
 
 
 export const commentSlice = createSlice({
@@ -37,9 +44,9 @@ export const commentSlice = createSlice({
     //   .addCase(getAllPosts.pending, (state, action) => {
     //       state.isLoading = true;
     //     })
-    //     .addCase(createPost.fulfilled, (state, action) => {
-    //       state.posts = [action.payload, ...state.posts];
-    //     })
+        .addCase(createComment.fulfilled, (state, action) => {
+          state.comments = [action.payload, ...state.posts];
+        })
     //     .addCase(like.fulfilled,(state,action)=>{
     //       state.posts = state.posts.map( post =>{
     //           if(post._id == action.payload._id){
