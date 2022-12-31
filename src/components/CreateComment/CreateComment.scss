@@ -1,34 +1,38 @@
 @import "colors";
 
-.form-create-comment{
+.form-create-comment {
+  display: flex;
+  justify-content: center;
+  margin: 0.5rem;
+
+  .input {
+    line-height: 2rem;
+    width: 30rem;
+    font-size: 1rem;
+    border-radius: 0.8rem;
+    position: relative;
+    background-color: $back-search-butons;
+  }
+
+  .input:hover {
+    cursor: pointer;
+  }
+  .button-publish {
+    cursor: pointer;
+    background-color: transparent;
+    position: absolute;
+    width: 5rem;
+    top: 0.5rem;
+    left: 26rem;
+    right: 0;
+    margin: auto;
+    font-size: 25px;
+  }
+
+  .input-form {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin: 0.5rem;
-    border: 1px solid brown;
-
-    .input{
-      
-        border: 1px solid blueviolet;
-        line-height: 2rem;
-        font-size: 1rem;
-        border-radius: 0.8rem;
-        background-color: $back-search-butons;
-        
-    }
-    
-    .input:hover{
-        cursor: pointer;
-        background-color: $back-hover;
-
-    }
-    .button-comment{
-  
-        border: 1px solid blueviolet;
-        cursor: pointer;
-        
-    }
-    
+    flex-direction: row;
+    align-items: center;
+    align-content: stretch;
+  }
 }
-
-

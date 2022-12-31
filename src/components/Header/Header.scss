@@ -5,9 +5,9 @@
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-between;
-    margin: 5px;
     padding: 5px;
     background: $backgraund-color-secundary;
+ 
     
     
 }
@@ -22,7 +22,6 @@
        line-height: 1.34;
        margin: 0;
        padding: 0;
-       direction: ltr;
        background: $backgraund-color-secundary;
        
     }
@@ -56,6 +55,7 @@
         padding-left: 150px;
         gap: 15px;
         background: $backgraund-color-secundary;
+      
     }
     .nav-right{
         display: flex;

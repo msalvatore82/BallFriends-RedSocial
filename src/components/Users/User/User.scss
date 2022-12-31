@@ -1,0 +1,90 @@
+@import "colors";
+
+
+.body-user{
+    background-color: $backgraund-color-secundary;
+
+}
+.card-user {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 75%;
+
+  .cover-img {
+    width: 100%;
+    height: 18rem;
+    border-radius: 0px 0px 10px 10px;
+    -moz-border-radius: 0px 0px 10px 10px;
+    -webkit-border-radius: 0px 0px 10px 10px;
+    border: 0px solid #000000;
+    background: rgb(108, 109, 110);
+    background: linear-gradient(
+      0deg,
+      rgba(108, 109, 110, 1) 0%,
+      rgba(240, 242, 245, 1) 24%
+    );
+
+    .icon-img-cover{
+        text-align: end;
+        font-size: 1.2rem;
+        margin-top: 1rem;
+        margin-right: 1rem;
+        background-color: transparent;
+
+
+    }
+  }
+  .nav-user {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: 5px;
+    padding: 5px;
+    background: $backgraund-color-secundary;
+
+    .iten-nav-user {
+      all: unset;
+      cursor: pointer;
+    }
+  }
+  .nav-img-name{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .user-avatar{
+    border-radius: 50%;
+    width: 70%;
+    border: 2px solid white;
+    margin-top: -50%;
+    margin-left: 1rem;
+  }
+  .name-user{
+    font-size: 2rem;
+    font-weight: 700;
+    margin-left: -40rem;
+
+  }
+  .icon-img-user{
+    font-size: 1.5rem;
+    color: gray;
+    background: transparent;
+    margin-top: -3rem;
+    margin-left: 8rem;
+  }
+
+
+  .btn-edit-profile{
+    border-radius: 5px;
+    background: #e4e6eb;
+    font-weight: 600;
+    margin-top: 0.5rem;
+    margin-right: 0.5rem;
+    cursor: pointer;
+  }
+
+}

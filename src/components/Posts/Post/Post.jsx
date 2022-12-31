@@ -1,12 +1,11 @@
 import { AiOutlineLike, AiTwotoneLike } from "react-icons/ai";
 import { BiCommentDots } from "react-icons/bi";
-import { Button, Card } from "antd";
+import { Button, Card, Pagination } from "antd";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./Post.scss";
 import { like } from "../../../features/post/postsSlice";
 import CreateComment from "../../CreateComment/CreateComment";
-import { createComment } from "../../../features/comment/commentSlice";
 
 const Post = () => {
   const { posts, isLoading } = useSelector((state) => state.posts);
@@ -22,7 +21,7 @@ const Post = () => {
       {posts.map((element) => (
         <div key={element._id} className="container-post">
           <div className="container-head-post">
-            <img src="" title="imagen de usuario" />
+            {/* <img src="" title="imagen de usuario" /> */}
             <p>{element.userId}</p>
           </div>
           <div className="container-post">
@@ -56,14 +55,10 @@ const Post = () => {
                 }}
                 icon={
                   <AiOutlineLike
-                //   onClick={() => {
-                //     createComment(element?._id);
-                //   }}
                     style={{
                       color: "gray",
                       fontSize: "25px",
                       border: "none",
-                      
                     }}
                   />
                 }
@@ -99,12 +94,31 @@ const Post = () => {
                 return visible ? (
                   <Card>
                     <p>{item.comment}</p>
+                    <div className="container-like">
+                      <Button
+                        onClick={() => dispatch(like(element?._id))}
+                        style={{
+                          border: "none",
+                          marginLeft: 15,
+                        }}
+                        icon={
+                          <AiOutlineLike
+                            style={{
+                              color: "gray",
+                              fontSize: "25px",
+                              border: "none",
+                            }}
+                          />
+                        }
+                      />
+                    </div>
                   </Card>
                 ) : null;
               })}
             </div>
           </div>
         </div>
+        
       ))}
     </div>
   );

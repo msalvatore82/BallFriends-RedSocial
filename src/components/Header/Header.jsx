@@ -26,7 +26,7 @@ const Header = () => {
       <nav className="nav">
         <div className="nav-left">
           <div className="picture">
-            <Link to="/home">
+            <Link to="/home" >
             <img src={isolgo} alt="isologo" className="isologo" />
             </Link>
           </div>
@@ -47,25 +47,31 @@ const Header = () => {
           >
             <Link to="/home">
               <HomeFilled
+               title="inicio"
                 style={{
                   fontSize: 25,
                   marginLeft: 15,
                 }}
               />
             </Link>
-
+            <Link to="/teams"> 
             <TeamOutlined
+             title="Equipos"
               style={{
                 fontSize: 25,
                 marginLeft: 15,
               }}
             />
+            </Link>
+            <Link to="/Myteams"> 
             <SkinFilled
+            title="Mis-Equipos"
               style={{
                 fontSize: 25,
                 marginLeft: 15,
               }}
             />
+            </Link>
           </div>
         </div>
         <div className="nav-right">

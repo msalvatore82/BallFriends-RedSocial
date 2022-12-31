@@ -1,9 +1,6 @@
-
-
-
 import { Button, Form, Input } from "antd";
 import React, { useEffect } from "react";
-import { useState } from 'react';
+import { useState } from "react";
 import { AiOutlineSend } from "react-icons/ai";
 import { useDispatch } from "react-redux";
 import {
@@ -48,10 +45,8 @@ const CreateComment = () => {
     getAllComment();
   }, []);
 
-
-
   return (
-    <div className="form-create-post">
+    <div className="form-create-comment">
       <>
         <Form onClick={onSubmit}>
           <Form.Item
@@ -62,24 +57,22 @@ const CreateComment = () => {
               },
             ]}
           >
-            <Input
-              name="comment"
-              value={comment}
-              onChange={onChange}
-              placeholder="Envia tu comentario..."
-            />
+            <div className="input-form">
+              <Input
+                className="input"
+                name="comment"
+                value={comment}
+                onChange={onChange}
+                placeholder="Envia tu comentario..."
+              />
+              <AiOutlineSend
+                className="button-publish"
+                key="submit"
+                type="primary"
+                loading={loading}
+              />
+            </div>
           </Form.Item>
-          <Button
-           
-          >
-            <AiOutlineSend
-             className="button-publish"
-             key="submit"
-             type="primary"
-             loading={loading}
-             />
-          </Button>
-          ,
         </Form>
       </>
     </div>

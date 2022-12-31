@@ -1,23 +1,29 @@
+@import "colors";
+
+
 .container-home {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
   width: 100%;
+  margin-top: 0.8rem;
+  gap: 0.5rem;
 
   .sidebar-left {
     width: 35%;
     border: 1px red solid;
+    margin-left: 0.5rem;
   }
   .sidebar-rigth {
     width: 35%;
     border: 1px blue solid;
+    margin-right: 0.5rem;
   }
   .posts {
     display: flex;
     flex-direction: column;
     width: 40%;
-    border: 1px black solid;
     gap: 0.5rem;
 
     .create-post {
@@ -26,7 +32,6 @@
       border-radius: 0.8rem;
     }
     .posts {
-      border: 1px red solid;
       border-radius: 0.8rem;
       width: 100%;
     }
