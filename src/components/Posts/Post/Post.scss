@@ -1,38 +1,47 @@
 @import "colors";
 
-.container-post{
+.container-post {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid rgb(11, 87, 24);
+  border-radius: 0.8rem;
+  background-color: $backgraund-color-secundary;
+  margin-top: 1rem;
+
+  .container-head-post {
     display: flex;
-    flex-direction: column;
-    border:  2px solid rgb(11, 87, 24);
-    border-radius: 0.8rem;
-    background-color: $backgraund-color-secundary;
-    margin-top: 1rem;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+  }
 
-    .container-head-post{
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-start;
-        align-items: center;
+  .container-post {
+    line-height: 8rem;
+  }
+
+  .container-counter {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    .like-length {
+      font-size: 0.8rem;
+      color: gray;
+      align-items: center;
+      margin-left: 0.5rem;
     }
-
-    .container-post{
-        line-height: 8rem;
+    .comment-length {
+      font-size: 0.8rem;
+      color: gray;
+      align-items: center;
+      margin-right: 0.5rem;
     }
+  }
 
-    .container-counter{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .container-like-comment{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-
-
-    }
-
+  .container-like-comment {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
 }
-

@@ -26,7 +26,7 @@ const User = () => {
           </div>
           {/* <div className="name-user">{user.user.name}</div> */}
           <div className="name-user">Usuario</div>
-          <div className="btn-profi" > <button className="btn-edit-profile"> <MdModeEdit/> Editar perfil </button></div>
+          <div className="btn-profi" > <button className="btn-edit-profile"> <MdModeEdit style={{background:"none" } } /> Editar perfil </button></div>
         </div>
         <div>
           <ul className="nav-user">

@@ -2,6 +2,8 @@ import { Button, Form, Input, Modal } from "antd";
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { createPost, getAllPosts } from "../../features/post/postsSlice";
+import avatar from "../../Asset/avatar-default.png"
+
 import "./CreatePost.scss";
 
 const CreatePost = () => {
@@ -59,8 +61,10 @@ const CreatePost = () => {
 //   };
   return (
     <div className="form-create-post">
+      <div className="avatar-user">
+        <img className="avatar-user" src={avatar} alt="" srcset="" />
+      </div>
       <button className="input" onClick={showModal}>
-        {" "}
         ¿Tienes algo para contarnos?{" "}
       </button>
       <>

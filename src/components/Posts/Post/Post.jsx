@@ -29,8 +29,7 @@ const Post = () => {
           </div>
           <div className="container-counter">
             <div>
-              <p>
-                icon=
+              <p className="like-length">
                 {
                   <AiTwotoneLike
                     style={{
@@ -40,10 +39,10 @@ const Post = () => {
                     }}
                   />
                 }
-                Like {element.likes} cantidad delikes
+                {element.likes.length} Like
               </p>
             </div>
-            <div>cantidad de comentarios</div>
+            <div className="comment-length" >{element.comment.length}</div>
           </div>
           <div className="container-like-comment">
             <div className="container-like">
@@ -51,6 +50,7 @@ const Post = () => {
                 onClick={() => dispatch(like(element?._id))}
                 style={{
                   border: "none",
+                  background: "none",
                   marginLeft: 15,
                 }}
                 icon={
@@ -58,7 +58,7 @@ const Post = () => {
                     style={{
                       color: "gray",
                       fontSize: "25px",
-                      border: "none",
+                      
                     }}
                   />
                 }
@@ -73,6 +73,7 @@ const Post = () => {
                 style={{
                   border: "none",
                   marginLeft: 15,
+                  background: "none",
                 }}
                 icon={
                   <BiCommentDots
@@ -80,7 +81,6 @@ const Post = () => {
                     style={{
                       color: "gray",
                       fontSize: "25px",
-                      border: "none",
                     }}
                   />
                 }

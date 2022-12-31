@@ -48,9 +48,11 @@ const Header = () => {
             <Link to="/home">
               <HomeFilled
                title="inicio"
+               
                 style={{
                   fontSize: 25,
                   marginLeft: 15,
+                  background:"none"
                 }}
               />
             </Link>
@@ -60,6 +62,7 @@ const Header = () => {
               style={{
                 fontSize: 25,
                 marginLeft: 15,
+                background:"none"
               }}
             />
             </Link>
@@ -67,6 +70,7 @@ const Header = () => {
             <SkinFilled
             title="Mis-Equipos"
               style={{
+                background:"none",
                 fontSize: 25,
                 marginLeft: 15,
               }}
@@ -89,6 +93,7 @@ const Header = () => {
             <AppstoreOutlined
               style={{
                 fontSize: 25,
+                background:"none"
               }}
             />
           </div>
@@ -96,6 +101,7 @@ const Header = () => {
             <MessageOutlined
               style={{
                 fontSize: 25,
+                background:"none"
               }}
             />
           </div>
@@ -103,6 +109,7 @@ const Header = () => {
             <AlertOutlined
               style={{
                 fontSize: 25,
+                background:"none"
               }}
             />
           </div>
@@ -112,6 +119,7 @@ const Header = () => {
               <UserOutlined
                 style={{
                   fontSize: 25,
+                  background:"none"
                 }}
               />{" "}
             </Link>
