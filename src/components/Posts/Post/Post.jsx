@@ -1,19 +1,24 @@
-import { AiOutlineLike, AiTwotoneLike } from "react-icons/ai";
+import { AiOutlineDislike, AiOutlineLike, AiTwotoneLike } from "react-icons/ai";
 import { BiCommentDots } from "react-icons/bi";
 import { Button, Card } from "antd";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./Post.scss";
-import { deletePost, getAllPosts, like } from "../../../features/post/postsSlice";
+import {
+  deletePost,
+  disLike,
+  getAllPosts,
+  like,
+} from "../../../features/post/postsSlice";
 import CreateComment from "../../CreateComment/CreateComment";
 import { MdDeleteForever } from "react-icons/md";
 
 const Post = () => {
   const { posts, isLoading } = useSelector((state) => state.posts);
+  const { user } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const [visible, setVisible] = useState(false);
- 
-
+  const isAlreadyLiked = posts.like?.includes(user?.user._id);
   return (
     <div>
       {posts.map((element) => (
@@ -50,9 +55,26 @@ const Post = () => {
                   border: "none",
                   background: "none",
                   marginLeft: 15,
+
                 }}
                 icon={
                   <AiOutlineLike
+                    style={{
+                      color: "gray",
+                      fontSize: "25px",
+                    }}
+                  />
+                }
+              />
+              <Button
+                onClick={() => dispatch(disLike(element._id))}
+                style={{
+                  border: "none",
+                  background: "none",
+                  marginLeft: -4,
+                }}
+                icon={
+                  <AiOutlineDislike
                     style={{
                       color: "gray",
                       fontSize: "25px",
@@ -79,24 +101,24 @@ const Post = () => {
                 }
               />
             </div>
-              <div className="container-delete">
-                <Button
-                  style={{
-                    border: "none",
-                    marginLeft: 15,
-                    background: "none",
-                  }}
-                  icon={
-                    <MdDeleteForever
+            <div className="container-delete">
+              <Button
+                style={{
+                  border: "none",
+                  marginLeft: 15,
+                  background: "none",
+                }}
+                icon={
+                  <MdDeleteForever
                     onClick={() => dispatch(deletePost(element._id))}
-                      style={{
-                        color: "gray",
-                        fontSize: "25px",
-                      }}
-                    />
-                  }
-                />
-              </div>
+                    style={{
+                      color: "gray",
+                      fontSize: "25px",
+                    }}
+                  />
+                }
+              />
+            </div>
           </div>
           <div className="constainer-comment">
             <div>
