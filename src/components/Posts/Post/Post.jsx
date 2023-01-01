@@ -1,21 +1,19 @@
 import { AiOutlineLike, AiTwotoneLike } from "react-icons/ai";
 import { BiCommentDots } from "react-icons/bi";
-import { Button, Card, Pagination } from "antd";
-import React, { useState } from "react";
+import { Button, Card } from "antd";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./Post.scss";
-import { like } from "../../../features/post/postsSlice";
+import { deletePost, getAllPosts, like } from "../../../features/post/postsSlice";
 import CreateComment from "../../CreateComment/CreateComment";
+import { MdDeleteForever } from "react-icons/md";
 
 const Post = () => {
   const { posts, isLoading } = useSelector((state) => state.posts);
-  console.log(posts);
   const dispatch = useDispatch();
   const [visible, setVisible] = useState(false);
+ 
 
-  if (isLoading) {
-    return <h1>Cargando...</h1>;
-  }
   return (
     <div>
       {posts.map((element) => (
@@ -42,12 +40,12 @@ const Post = () => {
                 {element.likes.length} Like
               </p>
             </div>
-            <div className="comment-length" >{element.comment.length}</div>
+            <div className="comment-length">{element.comment.length}</div>
           </div>
-          <div className="container-like-comment">
+          <div className="container-like-comment-delete">
             <div className="container-like">
               <Button
-                onClick={() => dispatch(like(element?._id))}
+                onClick={() => dispatch(like(element._id))}
                 style={{
                   border: "none",
                   background: "none",
@@ -58,18 +56,13 @@ const Post = () => {
                     style={{
                       color: "gray",
                       fontSize: "25px",
-                      
                     }}
                   />
                 }
               />
             </div>
-            <div>
+            <div className="container-comment">
               <Button
-                className="container-comment"
-                onClick={() => {
-                  //   createfav(product.id);
-                }}
                 style={{
                   border: "none",
                   marginLeft: 15,
@@ -86,6 +79,24 @@ const Post = () => {
                 }
               />
             </div>
+              <div className="container-delete">
+                <Button
+                  style={{
+                    border: "none",
+                    marginLeft: 15,
+                    background: "none",
+                  }}
+                  icon={
+                    <MdDeleteForever
+                    onClick={() => dispatch(deletePost(element._id))}
+                      style={{
+                        color: "gray",
+                        fontSize: "25px",
+                      }}
+                    />
+                  }
+                />
+              </div>
           </div>
           <div className="constainer-comment">
             <div>
@@ -118,7 +129,6 @@ const Post = () => {
             </div>
           </div>
         </div>
-        
       ))}
     </div>
   );

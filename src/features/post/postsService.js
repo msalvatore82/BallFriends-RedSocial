@@ -28,6 +28,15 @@ const like = async (_id) => {
   return res.data;
 };
 
+const deletePost = async (_id) => {
+  const res = await axios.delete(API_URL + "/posts/deletePost/" + _id, {
+    headers: {
+      authorization: user?.token,
+    },
+  } );
+return res.data;
+};
+
 
 
 
@@ -57,6 +66,7 @@ const postsService = {
   getAllPosts,
   createPost,
   like,
+  deletePost,
 //   getPostById,
 //   getPostByName,
 //   destroyPostById
