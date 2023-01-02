@@ -21,7 +21,7 @@ const Header = () => {
   const { Search } = Input;
   return (
     <div className="header-nav">
-      {user ? (
+      {user ? 
         <>
       <nav className="nav">
         <div className="nav-left">
@@ -48,7 +48,7 @@ const Header = () => {
             <Link to="/home">
               <HomeFilled
                title="inicio"
-               
+               className="logo-home"
                 style={{
                   fontSize: 25,
                   marginLeft: 15,
@@ -59,6 +59,7 @@ const Header = () => {
             <Link to="/teams"> 
             <TeamOutlined
              title="Equipos"
+             className="logo-team"
               style={{
                 fontSize: 25,
                 marginLeft: 15,
@@ -69,6 +70,7 @@ const Header = () => {
             <Link to="/Myteams"> 
             <SkinFilled
             title="Mis-Equipos"
+            className="logo-myteam"
               style={{
                 background:"none",
                 fontSize: 25,
@@ -115,7 +117,6 @@ const Header = () => {
           </div>
           <div>
             <Link to="/user">
-              {" "}
               <UserOutlined
                 style={{
                   fontSize: 25,
@@ -125,13 +126,13 @@ const Header = () => {
             </Link>
           </div>
         </div>
-        
       </nav>
       </>
-       ) : (
+        : 
         <>
+        <Link to="/login"></Link>
         </>
-  )}
+}
     </div>
   );
 };

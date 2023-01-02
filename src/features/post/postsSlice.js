@@ -95,13 +95,14 @@ export const postsSlice = createSlice({
       .addCase(createPost.fulfilled, (state, action) => {
         state.posts = [action.payload, ...state.posts];
       })
-      .addCase(like.fulfilled,(state,action)=>{
-        state.posts = state.posts.map( post =>{
-            if(post._id == action.payload._id){
-                post = action.payload
-            }
-            return post
-        })
+      .addCase(like.fulfilled, (state, action) => {
+        const posts = state.posts.map((element) => {
+          if (element._id === action.payload._id) {
+            element = action.payload;
+          }
+          return element
+      })
+      state.posts = posts
       })
       builder.addCase(disLike.fulfilled, (state, action) => {
         const posts = state.posts.map((post) => {
@@ -116,7 +117,7 @@ export const postsSlice = createSlice({
       .addCase(deletePost.fulfilled, (state,action)=>{
         state.posts = state.posts.filter((post) => post._id !== action.payload.post._id) 
       });
-      
+
 //     .addCase(getPostById.fulfilled,(state,action)=>{
 //         state.post = action.payload
 //     })

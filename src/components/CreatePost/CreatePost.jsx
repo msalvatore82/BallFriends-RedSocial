@@ -1,17 +1,19 @@
 import { Button, Form, Input, Modal } from "antd";
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { createPost, getAllPosts } from "../../features/post/postsSlice";
 import avatar from "../../Asset/avatar-default.png"
 
 import "./CreatePost.scss";
 
 const CreatePost = () => {
+  const { user } = useSelector((state) => state.users);
   const [loading, setLoading] = useState(false);
   const [open, setOpen] = useState(false);
   const [postData, setPostData] = useState({
     post: "",
   });
+  
 
   const { post } = postData;
 
@@ -55,10 +57,6 @@ const CreatePost = () => {
   const handleCancel = () => {
     setOpen(false);
   };
-
-//   const onFinish = (values) => {
-//     console.log("Received values of form: ", values);
-//   };
   return (
     <div className="form-create-post">
       <div className="avatar-user">
@@ -77,9 +75,13 @@ const CreatePost = () => {
             
           ]}
         >
-          <Form >
-            <img src="" alt="" /> foto de usuaur
-            <p>nombre de usuario</p>
+          <fom >
+            <div className="head-create-post">
+            <img className="avatar-user-modal" src={avatar} alt="" srcset="" />
+            {/* <p>{user.user.name}</p> */}
+            <p>usuario</p>
+            </div>
+          
             <Form.Item 
             rules={[
                  {
@@ -89,13 +91,14 @@ const CreatePost = () => {
               ]}
             >
               <Input 
+              className="input-create-post"
               name="post"
               value={post}
               onChange={onChange}
               placeholder="Que estas pensando" />
             </Form.Item>
        
-            <Button
+            <button
             className="button-publish"
               key="submit"
               type="primary"
@@ -103,8 +106,8 @@ const CreatePost = () => {
               onClick={onSubmit}
             >
               Publicar
-            </Button>,
-          </Form>
+            </button>,
+          </fom>
         </Modal>
       </>
     </div>

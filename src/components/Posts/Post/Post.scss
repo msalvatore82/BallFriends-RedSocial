@@ -3,8 +3,8 @@
 .container-post {
   display: flex;
   flex-direction: column;
-  border: 2px solid rgb(11, 87, 24);
   border-radius: 0.8rem;
+  border: 1px solid rgb(209, 209, 209);
   background-color: $backgraund-color-secundary;
   margin-top: 1rem;
 
@@ -13,10 +13,16 @@
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
+    gap: 0.5rem;
+    margin-left: 0.5rem;
   }
 
   .container-post {
     line-height: 8rem;
+
+  }
+  .ico-lke{
+    color: $color-logo;
   }
 
   .container-counter {
@@ -43,5 +49,13 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+  }
+
+  .avatar-user {
+    border-radius: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-top: 0.2rem;
+
   }
 }

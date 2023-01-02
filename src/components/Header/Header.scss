@@ -43,6 +43,12 @@
             background: $backgraund-color-secundary;
         }  
     }
+
+    .logo-home,
+    .logo-myteam,
+    .logo-team {
+        color: $color-logo;
+    }
     
     .nav-central{
         display: flex;

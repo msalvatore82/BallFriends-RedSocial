@@ -1,32 +1,38 @@
 import { AiOutlineDislike, AiOutlineLike, AiTwotoneLike } from "react-icons/ai";
 import { BiCommentDots } from "react-icons/bi";
 import { Button, Card } from "antd";
-import React, { useEffect, useState } from "react";
+import React, {useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./Post.scss";
 import {
   deletePost,
   disLike,
-  getAllPosts,
   like,
 } from "../../../features/post/postsSlice";
 import CreateComment from "../../CreateComment/CreateComment";
 import { MdDeleteForever } from "react-icons/md";
+import avatar from "../../../Asset/avatar-default.png"
+
+
+
 
 const Post = () => {
-  const { posts, isLoading } = useSelector((state) => state.posts);
-  const { user } = useSelector((state) => state.auth);
+  const { posts } = useSelector((state) => state.posts);
   const dispatch = useDispatch();
   const [visible, setVisible] = useState(false);
-  const isAlreadyLiked = posts.like?.includes(user?.user._id);
+  const { user } = useSelector((state) => state.users);
+  console.log(user);
+
+
   return (
     <div>
       {posts.map((element) => (
         <div key={element._id} className="container-post">
-          <div className="container-head-post">
-            {/* <img src="" title="imagen de usuario" /> */}
-            <p>{element.userId}</p>
-          </div>
+           <div className="container-head-post ">
+            <img className="avatar-user-modal" src={avatar} alt="" srcset="" />
+            {/* <p>{user.user.name}</p> */}
+            <p>usuario</p>
+            </div>
           <div className="container-post">
             <p>{element.post}</p>
           </div>
@@ -35,17 +41,19 @@ const Post = () => {
               <p className="like-length">
                 {
                   <AiTwotoneLike
+                  className="ico-lke"
                     style={{
-                      color: "Blue",
+                      
                       fontSize: "25px",
                       border: "none",
+                      marginBottom: -5
                     }}
                   />
                 }
                 {element.likes.length} Like
               </p>
             </div>
-            <div className="comment-length">{element.comment.length}</div>
+            <div className="comment-length">{element.comment.length} comentarios</div>
           </div>
           <div className="container-like-comment-delete">
             <div className="container-like">

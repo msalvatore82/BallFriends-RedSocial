@@ -1,45 +1,92 @@
 @import "colors";
 
-.form-create-post{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin: 1rem;
-    background: white;
-    
-    .avatar-user{
-        border-radius: 50%;
-        width: 2.5rem;
-        margin-top: 0.2rem
-    }
 
-    .input{
-        margin: 0.5rem;
-        width: 100%;
-        line-height: 2rem;
-        font-size: 1rem;
-        border-radius: 0.8rem;
-        border: none;
-        background-color: $back-search-butons;
-        
-    }
-    
-  
-    .input:hover{
-        cursor: pointer;
-        background-color: $back-hover;
+.form-create-post {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 1rem;
+  background: white;
 
-    }
-}
-
-.button-publish{
-    width: 100%;
-    color: rgb(114, 114, 114);
-    font-weight: 500;
-    background-color: $back-search-butons;
-}
-.button-cancel{
-    font-size: 1rem;
-    text-align: center;
+  .avatar-user {
     border-radius: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-top: 0.2rem;
+
+  }
+
+  .input {
+    margin: 0.5rem;
+    width: 100%;
+    color: gray;
+    line-height: 2rem;
+    font-size: 1rem;
+    border-radius: 0.8rem;
+    border: none;
+    background-color: $back-search-butons;
+  }
+
+  .input:hover {
+    cursor: pointer;
+    background-color: $back-hover;
+  }
+}
+
+.button-publish {
+    border: none;
+  width: 100%;
+  font-size: 1rem;
+  color: rgb(114, 114, 114);
+  font-weight: 500;
+  line-height: 1.8rem;
+  background-color: $back-search-butons;
+  border-radius: 0.5rem;
+
+}
+
+.button-publish:hover {
+    cursor: pointer;
+    font-size: 1rem;
+    color: white;
+    width: 100%;
+    border: none;
+    font-weight: 500;
+    background-color: $color-logo;
+  }
+
+.button-cancel {
+  font-size: 1rem;
+  text-align: center;
+  border-radius: 50%;
+}
+
+.head-create-post {
+  display: flex;
+ border-radius: 0.8rem;
+  gap: 0.5rem;
+}
+
+.input-create-post {
+  text-align: start;
+  height: 10rem;
+}
+
+.input-create-post[name="post"]::-webkit-input-placeholder {
+  position: relative;
+  font-size: 0.9rem;
+  padding: 0.7rem;
+  transition: 0.3s ease-in-out;
+}
+.input-create-post[name="post"]:focus::-webkit-input-placeholder {
+  position: absolute;
+  font-size: small;
+  padding: 0;
+}
+
+.avatar-user-modal {
+  border-radius: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-top: 0.2rem;
 }
