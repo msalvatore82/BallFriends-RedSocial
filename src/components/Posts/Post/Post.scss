@@ -19,9 +19,13 @@
 
   .container-post {
     line-height: 8rem;
-
   }
-  .ico-lke{
+
+  .container-post:hover{
+    background-color: rgb(224, 224, 224);
+    cursor: pointer;
+  }
+  .ico-lke {
     color: $color-logo;
   }
 
@@ -42,6 +46,9 @@
       color: gray;
       align-items: center;
       margin-right: 0.5rem;
+      border: none;
+      background-color: transparent;
+      cursor: pointer;
     }
   }
 
@@ -56,6 +63,21 @@
     width: 2.5rem;
     height: 2.5rem;
     margin-top: 0.2rem;
-
+  }
+  .constainer-comment-one {
+    display: flex;
+    flex-direction: row;
+    .comment {
+      width: 90%;
+      margin: 0.5rem;
+      line-height: 2.5rem;
+      border-radius: 1rem;
+      background-color: rgb(238, 238, 238);
+    }
+    .container-like-one {
+      margin-top: 0.7rem;
+      margin-left: -1rem;
+      margin-right: 0.5rem;
+    }
   }
 }

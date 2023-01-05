@@ -1,59 +1,84 @@
+/* eslint-disable no-restricted-globals */
 import { AiOutlineDislike, AiOutlineLike, AiTwotoneLike } from "react-icons/ai";
 import { BiCommentDots } from "react-icons/bi";
-import { Button, Card } from "antd";
-import React, {useState } from "react";
+import { Button } from "antd";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./Post.scss";
-import {
-  deletePost,
-  disLike,
-  like,
-} from "../../../features/post/postsSlice";
+import { deletePost, disLike, getPostById, like } from "../../../features/post/postsSlice";
 import CreateComment from "../../CreateComment/CreateComment";
 import { MdDeleteForever } from "react-icons/md";
-import avatar from "../../../Asset/avatar-default.png"
-
-
-
+import avatar from "../../../Asset/avatar-default.png";
+import { EditOutlined } from "@ant-design/icons";
+import EditPost from "../../EditPost/EditPost";
 
 const Post = () => {
   const { posts } = useSelector((state) => state.posts);
+  // const { user} = useSelector((state) => state.users);
+  // console.log(user);
+  // console.log(posts)
   const dispatch = useDispatch();
   const [visible, setVisible] = useState(false);
-  const { user } = useSelector((state) => state.users);
-  console.log(user);
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
+
+  const showModal = (_id) => {
+    dispatch(getPostById(_id));
+    setIsModalVisible(true);
+  };
+
 
 
   return (
     <div>
-      {posts.map((element) => (
-        <div key={element._id} className="container-post">
-           <div className="container-head-post ">
+      {posts.map((element, idx) =>  (
+        <div key={idx} className="container-post">
+          <div className="container-head-post ">
             <img className="avatar-user-modal" src={avatar} alt="" srcset="" />
-            {/* <p>{user.user.name}</p> */}
-            <p>usuario</p>
-            </div>
+            {/* {console.log(element)} */}
+            <div > {element.userId.name}</div>
+            <p></p>
+          </div>
           <div className="container-post">
             <p>{element.post}</p>
+            <Button
+                style={{
+                  border: "none",
+                  background: "none",
+                  
+                }}
+                icon={
+                  <EditOutlined
+                  title="Editar publicación"
+                    onClick={() => showModal(element._id)}
+                    style={{
+                      color: "gray",
+                      fontSize: "15px",
+                    }}
+                  />
+                }
+              />
           </div>
           <div className="container-counter">
             <div>
               <p className="like-length">
                 {
                   <AiTwotoneLike
-                  className="ico-lke"
+                    className="ico-lke"
                     style={{
-                      
                       fontSize: "25px",
                       border: "none",
-                      marginBottom: -5
+                      marginBottom: -5,
                     }}
                   />
                 }
                 {element.likes.length} Like
               </p>
             </div>
-            <div className="comment-length">{element.comment.length} comentarios</div>
+            <div className="comment-length" >
+              <button className="comment-length" onClick={() => setVisible(element._id)} >{element.comment.length }  comentarios </button>
+              
+            </div>
           </div>
           <div className="container-like-comment-delete">
             <div className="container-like">
@@ -63,7 +88,6 @@ const Post = () => {
                   border: "none",
                   background: "none",
                   marginLeft: 15,
-
                 }}
                 icon={
                   <AiOutlineLike
@@ -100,7 +124,7 @@ const Post = () => {
                 }}
                 icon={
                   <BiCommentDots
-                    onClick={() => setVisible(true)}
+                    onClick={() => setVisible(element._id)}
                     style={{
                       color: "gray",
                       fontSize: "25px",
@@ -126,6 +150,7 @@ const Post = () => {
                   />
                 }
               />
+              
             </div>
           </div>
           <div className="constainer-comment">
@@ -133,9 +158,9 @@ const Post = () => {
               {visible ? <CreateComment /> : null}
               {element.comment.map((item) => {
                 return visible ? (
-                  <Card>
-                    <p>{item.comment}</p>
-                    <div className="container-like">
+                  <div className="constainer-comment-one" >
+                    <p className="comment">{item.comment}</p>
+                    <div className="container-like-one">
                       <Button
                         onClick={() => dispatch(like(element?._id))}
                         style={{
@@ -146,17 +171,21 @@ const Post = () => {
                           <AiOutlineLike
                             style={{
                               color: "gray",
-                              fontSize: "25px",
+                              fontSize: "15px",
                               border: "none",
                             }}
                           />
                         }
                       />
                     </div>
-                  </Card>
+                  </div>
                 ) : null;
               })}
             </div>
+          </div>
+          <div>
+            {/* {element} */}
+            <EditPost visible={isModalVisible} setVisible={setIsModalVisible} />
           </div>
         </div>
       ))}

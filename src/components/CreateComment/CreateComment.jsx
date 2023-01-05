@@ -1,4 +1,4 @@
-import { Button, Form, Input } from "antd";
+import { Form, Input } from "antd";
 import React, { useEffect } from "react";
 import { useState } from "react";
 import { AiOutlineSend } from "react-icons/ai";
@@ -11,8 +11,8 @@ import { getAllPosts } from "../../features/post/postsSlice";
 import "./CreateComment.scss";
 
 const CreateComment = () => {
-  const [loading, setLoading] = useState(false);
-  const [open, setOpen] = useState(false);
+  const [loading] = useState(false);
+  const [ setOpen] = useState(false);
   const [commentData, setCommentData] = useState({
     comment: "",
   });
@@ -38,6 +38,7 @@ const CreateComment = () => {
     dispatch(createComment(commentData));
     setOpen(false);
     clearState();
+    
   };
 
   useEffect(() => {
@@ -48,7 +49,7 @@ const CreateComment = () => {
   return (
     <div className="form-create-comment">
       <>
-        <Form onClick={onSubmit}>
+        <Form >
           <Form.Item
             rules={[
               {
@@ -70,6 +71,7 @@ const CreateComment = () => {
                 key="submit"
                 type="primary"
                 loading={loading}
+                onClick={onSubmit}
               />
             </div>
           </Form.Item>

@@ -45,29 +45,39 @@ const deletePost = async (_id) => {
   } );
 return res.data;
 };
+const updatePost = async (data) => {
+  const user = JSON.parse(localStorage.getItem('user'));
+  const { _id } = data;
+  const { post } = data;
+  const postInfo = { post }
+  const res = await axios.put(API_URL + "/posts/updatePost/" + _id, postInfo, {
+    headers: {
+      authorization: user.token,
+    },
+  } );
+return res.data;
+};
+const getInfo = async() => {
+  const user = JSON.parse(localStorage.getItem('user'));
+  const res = await axios.get(API_URL + '/users/user', {
+      headers: {
+          authorization: user.token
+      }
+  })
+  return res.data
+}
 
-
-
-
-// const getPostById = async (id)=>{
-//     const res = await axios.get(API_URL +"/posts/getPostById/" + id)
-//     return res.data
-// }
+const getPostById = async (_id)=>{
+    const res = await axios.get(API_URL +"/posts/getPostById/" + _id,{
+      headers: {
+        authorization: user?.token,
+      },
+    } );
+  return res.data;
+  };
 
 // const getPostByName = async(title)=>{
 //   const res = await axios.get(API_URL + "/posts/getPostByName/" + title)
-//   return res.data
-// }
-
-// const destroyPostById = async(id)=>{
-//   const user = JSON.parse(localStorage.getItem("user"));
-//   const res = await axios.delete(API_URL +"/posts/destroyPostById/"+ id,
-//   {
-//     headers: {
-//       authorization: user?.token,
-//     },
-//   }
-//   )
 //   return res.data
 // }
 
@@ -77,9 +87,10 @@ const postsService = {
   like,
   deletePost,
   disLike,
-//   getPostById,
+  updatePost,
+  getPostById,
+  getInfo,
 //   getPostByName,
-//   destroyPostById
 };
 
 export default postsService;

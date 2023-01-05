@@ -6,9 +6,9 @@ const initialState = {
     user: {}
 };
 
-export const getUsers = createAsyncThunk("users/getUser", async() => {
+export const getUsers = createAsyncThunk("users/getUser", async(users) => {
     try {
-        return await userService.getUsers();
+        return await userService.getUsers(users);
     } catch (error) {
         console.error(error);
     }

@@ -6,8 +6,9 @@ import postsService from "./postsService";
 const initialState = {
   posts: [],
   isLoading: false,
-  post:{},
-  like: []
+  post: {},
+  like: [],
+  comment: [{}],
 };
 
 export const getAllPosts = createAsyncThunk("posts/getAllPosts", async () => {
@@ -18,13 +19,16 @@ export const getAllPosts = createAsyncThunk("posts/getAllPosts", async () => {
   }
 });
 
-export const createPost = createAsyncThunk("posts/createPostByUser", async (post) => {
-  try {
-    return await postsService.createPost(post);
-  } catch (error) {
-    console.error(error);
+export const createPost = createAsyncThunk(
+  "posts/createPostByUser",
+  async (post) => {
+    try {
+      return await postsService.createPost(post);
+    } catch (error) {
+      console.error(error);
+    }
   }
-});
+);
 
 export const like = createAsyncThunk("posts/like", async (_id) => {
   try {
@@ -41,7 +45,6 @@ export const disLike = createAsyncThunk("posts/nolikes", async (_id) => {
   }
 });
 
-
 export const deletePost = createAsyncThunk("posts/deletePost", async (_id) => {
   try {
     return await postsService.deletePost(_id);
@@ -49,28 +52,39 @@ export const deletePost = createAsyncThunk("posts/deletePost", async (_id) => {
     console.error(error);
   }
 });
+export const updatePost = createAsyncThunk("posts/update", async (data, thunkAPI) => {
+  try {
 
+      return await postsService.updatePost(data);
+  } catch (error) {
+     
+      const message = error.response.data.message;
+      return thunkAPI.rejectWithValue(message);
+  }
+});
 
+export const getPostById = createAsyncThunk(
+  "posts/getPostById",
+  async (_id) => {
+    try {
+      return await postsService.getPostById(_id);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+);
+export const getInfo = createAsyncThunk('auth/info', async ()=>{
 
-// export const getPostById = createAsyncThunk("posts/getPostById", async (id)=>{
-//     try {
-//         return await postsService.getPostById(id)
-//     } catch (error) {
-//         console.error(error)
-//     }
-// })
+  try {
+      return await postsService.getInfo();
+  } catch (error) {
+      console.error(error)
+  }
+})
 
 // export const getPostByName = createAsyncThunk("posts/getPostByName", async(title)=>{
 //   try {
 //     return await postsService.getPostByName(title)
-//   } catch (error) {
-//     console.error(error)
-//   }
-// })
-
-// export const destroyPostById = createAsyncThunk("posts/destroyPostById",async(id)=>{
-//   try {
-//     return await postsService.destroyPostById(id)
 //   } catch (error) {
 //     console.error(error)
 //   }
@@ -81,15 +95,18 @@ export const postsSlice = createSlice({
   initialState,
   reducers: {
     reset: (state) => {
-        state.isLoading = false;
-      },
+      state.isLoading = false;
+    },
+    setPostToEdit: (state, action) =>{
+      state.postToEdit = action.payload
+    }
   },
   extraReducers: (builder) => {
     builder
-    .addCase(getAllPosts.fulfilled, (state, action) => {
-      state.posts = action.payload;
-    })
-    .addCase(getAllPosts.pending, (state, action) => {
+      .addCase(getAllPosts.fulfilled, (state, action) => {
+        state.posts = action.payload;
+      })
+      .addCase(getAllPosts.pending, (state, action) => {
         state.isLoading = true;
       })
       .addCase(createPost.fulfilled, (state, action) => {
@@ -100,35 +117,56 @@ export const postsSlice = createSlice({
           if (element._id === action.payload._id) {
             element = action.payload;
           }
-          return element
-      })
-      state.posts = posts
-      })
-      builder.addCase(disLike.fulfilled, (state, action) => {
-        const posts = state.posts.map((post) => {
-          if (post._id === action.payload.post._id) {
-            post = action.payload.post;
-          }
-          return post;
+          return element;
         });
         state.posts = posts;
+      });
+    builder.addCase(disLike.fulfilled, (state, action) => {
+      const posts = state.posts.map((post) => {
+        if (post._id === action.payload.post._id) {
+          post = action.payload.post;
+        }
+        return post;
+      });
+      state.posts = posts;
+    });
+    builder
+      .addCase(deletePost.fulfilled, (state, action) => {
+        state.posts = state.posts.filter(
+          (post) => post._id !== action.payload.post._id
+        );
       })
       builder
-      .addCase(deletePost.fulfilled, (state,action)=>{
-        state.posts = state.posts.filter((post) => post._id !== action.payload.post._id) 
+      .addCase(updatePost.fulfilled, (state, action) => {
+        const posts = state.posts.map((post) => {
+            if (post._id === action.payload.post._id) {
+                post = action.payload.post;
+            }
+            return post;
+        });
+        state.posts = posts
+        state.isSuccess = true
+        state.isError = false;
+        state.message = action.payload.message
+    })
+    .addCase(updatePost.rejected, (state, action) => {
+      state.isError = true
+      state.isSuccess = false;
+      state.message = action.payload;
+      
+  })
+      .addCase(getPostById.fulfilled, (state, action) => {
+        state.post = action.payload;
       });
-
-//     .addCase(getPostById.fulfilled,(state,action)=>{
-//         state.post = action.payload
-//     })
-//     .addCase(getPostByName.fulfilled,(state,action)=>{
-//       state.posts = action.payload
-//     })
-//     .addCase(destroyPostById.fulfilled,(state,action)=>{
-//       state.posts = state.posts.filter(post => post.id !== +action.payload.id)
-//     })
+      builder
+    .addCase(getInfo.fulfilled, (state, action)=>{
+      state.info = action.payload
+  })
+    //     .addCase(getPostByName.fulfilled,(state,action)=>{
+    //       state.posts = action.payload
+    //     })
   },
 });
 
-export const { reset } = postsSlice.actions;
+export const { reset, resetMessage   } = postsSlice.actions;
 export default postsSlice.reducer;

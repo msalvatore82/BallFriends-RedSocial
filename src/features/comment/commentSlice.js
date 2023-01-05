@@ -18,7 +18,7 @@ export const getAllComment = createAsyncThunk("comment/getAllComment", async () 
 });
 export const createComment = createAsyncThunk("comment/comment", async (comment) => {
     try {
-      return await commentService.createPost(comment);
+      return await commentService.createComment(comment);
     } catch (error) {
       console.error(error);
     }

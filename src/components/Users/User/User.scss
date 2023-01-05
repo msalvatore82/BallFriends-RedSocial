@@ -3,6 +3,8 @@
 
 .body-user{
     background-color: $backgraund-color-secundary;
+    line-height: 3rem;
+    border: 5px solid $backgraund-color;
 
 }
 .card-user {
@@ -41,12 +43,16 @@
     flex-direction: row;
     justify-content: space-evenly;
     margin: 5px;
+    line-height: 2rem;
     padding: 5px;
-    background: $backgraund-color-secundary;
+    background-color: $backgraund-color;
 
     .iten-nav-user {
       all: unset;
       cursor: pointer;
+      color: $color-logo;
+      font-weight: 700;
+      
     }
   }
   .nav-img-name{
