@@ -4,9 +4,6 @@ import User from '../../User';
 
 const InfoUser = () => {
     const { user } = useSelector((state) => state.users);
-    const { posts } = useSelector((state) => state.posts);
-
-
   return (
     <div>
     <User/>

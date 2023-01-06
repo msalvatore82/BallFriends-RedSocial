@@ -10,7 +10,7 @@ const getAllComment = async () => {
 };
 const createComment = async (formData) => {
     const res = await axios.post(API_URL + "/comment/comment", 
-    {  formData },
+      formData ,
         {
           headers: {
             authorization: user?.token,

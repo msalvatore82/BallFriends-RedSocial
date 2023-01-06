@@ -9,11 +9,10 @@ import "./CreatePost.scss";
 const CreatePost = () => {
   const { user } = useSelector((state) => state.users);
   const [loading, setLoading] = useState(false);
-  const [open, setOpen] = useState(false);
+  const [open, setVisible] = useState(false);
   const [postData, setPostData] = useState({
     post: "",
   });
-  
 
   const { post } = postData;
 
@@ -34,7 +33,7 @@ const CreatePost = () => {
   const onSubmit = (e) => {
     e.preventDefault();
     dispatch(createPost(postData));
-    setOpen(false);
+    setVisible(false);
     clearState();
   };
 
@@ -43,19 +42,19 @@ const CreatePost = () => {
   }, []);
 
   const showModal = () => {
-    setOpen(true);
+    setVisible(true);
   };
 
   const handleOk = () => {
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
-      setOpen(false);
+      setVisible(false);
     }, 3000);
   };
 
   const handleCancel = () => {
-    setOpen(false);
+    setVisible(false);
   };
   return (
     <div className="form-create-post">

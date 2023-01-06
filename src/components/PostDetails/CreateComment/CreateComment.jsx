@@ -2,46 +2,51 @@ import { Form, Input } from "antd";
 import React, { useEffect } from "react";
 import { useState } from "react";
 import { AiOutlineSend } from "react-icons/ai";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router";
 import {
   createComment,
   getAllComment,
-} from "../../features/comment/commentSlice";
-import { getAllPosts } from "../../features/post/postsSlice";
+} from "../../../features/comment/commentSlice";
+import { getAllPosts } from "../../../features/post/postsSlice";
 import "./CreateComment.scss";
 
 const CreateComment = () => {
-  const [loading] = useState(false);
-  const [ setOpen] = useState(false);
-  const [commentData, setCommentData] = useState({
+  const { _id } = useParams();
+  const { post } = useSelector((state) => state.posts);
+  const [setOpen] = useState(false);
+  const [formData, setFormData] = useState({
     comment: "",
+    postId: _id,
   });
 
-  const { comment } = commentData;
+  const { comment } = formData;
 
   const clearState = () => {
-    setCommentData({
+    setFormData({
       comment: "",
+      postId: "",
     });
   };
+
   const dispatch = useDispatch();
 
   const onChange = (e) => {
-    setCommentData((prevState) => ({
+    setFormData((prevState) => ({
       ...prevState,
       [e.target.name]: e.target.value,
     }));
   };
-
   const onSubmit = (e) => {
     e.preventDefault();
-    dispatch(createComment(commentData));
+    dispatch(createComment(formData));
     setOpen(false);
     clearState();
     
   };
 
   useEffect(() => {
+   
     getAllPosts();
     getAllComment();
   }, []);
@@ -49,7 +54,7 @@ const CreateComment = () => {
   return (
     <div className="form-create-comment">
       <>
-        <Form >
+        <Form>
           <Form.Item
             rules={[
               {
@@ -70,8 +75,7 @@ const CreateComment = () => {
                 className="button-publish"
                 key="submit"
                 type="primary"
-                loading={loading}
-                onClick={onSubmit}
+                 onClick={onSubmit}
               />
             </div>
           </Form.Item>

@@ -1,0 +1,99 @@
+@import "colors";
+.container-post-detail {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    border-radius: 0.8rem;
+    background-color: $backgraund-color-secundary;
+    margin-top: 1rem;
+  
+    .container-post-post-detail{
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+      line-height: 2rem;
+      border: 1px solid rgb(209, 209, 209);
+      background-color: $backgraund-color-secundary;
+      margin-top: 1rem;
+      font-size: 1rem;
+    }
+    .container-post-img-detail{
+      width: 100%;
+      padding: 0;
+    }
+  
+  
+  
+    .container-head-post-detail {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 0.5rem;
+      margin-left: 0.5rem;
+    }
+  
+    .container-post-detail {
+      line-height: 8rem;
+    }
+  
+    .container-post-post-detail:hover{
+      background-color: rgb(224, 224, 224);
+      cursor: pointer;
+    }
+    .ico-lke-detail {
+      color: $color-logo;
+    }
+  
+    .container-counter-detail {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+  
+      .like-length-detail {
+        font-size: 0.8rem;
+        color: gray;
+        align-items: center;
+        margin-left: 0.5rem;
+      }
+      .comment-length-detail {
+        font-size: 0.8rem;
+        color: gray;
+        align-items: center;
+        margin-right: 0.5rem;
+        border: none;
+        background-color: transparent;
+      }
+    }
+  
+    .container-like-comment-delete-detail {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+    }
+  
+    .avatar-user-detail {
+      border-radius: 50%;
+      width: 2.5rem;
+      height: 2.5rem;
+      margin-top: 0.2rem;
+    }
+    .constainer-comment-one-detail {
+      display: flex;
+      flex-direction: row;
+      .comment-detail {
+        width: 90%;
+        margin: 0.5rem;
+        line-height: 2.5rem;
+        border-radius: 1rem;
+        background-color: rgb(238, 238, 238);
+      }
+      .container-like-one-detail {
+        margin-top: 0.7rem;
+        margin-left: -1rem;
+        margin-right: 0.5rem;
+      }
+    }
+  }
+  

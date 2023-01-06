@@ -42,3 +42,28 @@
     }
   }
 }
+
+@media only screen and (max-width: 395) {
+  .container-home{
+    display: flex;
+    flex-direction: column;
+  }
+  .sidebar-left {
+    display: flex;
+    border: 1px red solid;
+    margin-left: 0.5rem;
+    margin-top: 0.5rem;
+  }
+  .sidebar-rigth {
+    display: flex;
+    border: 1px blue solid;
+    margin-right: 0.5rem;
+    margin-top: 0.5rem;
+
+  }
+  .post{
+    display: flex;
+  }
+}
+
+

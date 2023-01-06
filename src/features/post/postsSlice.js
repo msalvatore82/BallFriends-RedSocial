@@ -6,10 +6,88 @@ import postsService from "./postsService";
 const initialState = {
   posts: [],
   isLoading: false,
-  post: {},
-  like: [],
-  comment: [{}],
+  post: null,
+
 };
+export const postsSlice = createSlice({
+  name: "posts",
+  initialState,
+  reducers: {
+    reset: (state) => {
+      state.isLoading = false;
+      state.post = null;
+    },
+    setPostToEdit: (state, action) =>{
+      state.postToEdit = action.payload
+    }
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(getAllPosts.fulfilled, (state, action) => {
+        state.posts = action.payload;
+      })
+      .addCase(getAllPosts.pending, (state, action) => {
+        state.isLoading = true;
+      })
+      .addCase(createPost.fulfilled, (state, action) => {
+        state.posts = [action.payload, ...state.posts];
+      })
+      .addCase(like.fulfilled, (state, action) => {
+        state.posts = state.posts.map((post) => {
+            if (post._id === action.payload.post._id) {
+                post = action.payload.post;
+            }
+            return post;
+        });
+        state.post = action.payload.post;
+    })
+    builder.addCase(disLike.fulfilled, (state, action) => {
+      state.posts = state.posts.map((post) => {
+        if (post._id === action.payload.post._id) {
+          post = action.payload.post;
+        }
+        return post;
+      });
+      state.post = action.payload.post;
+    });
+    builder
+      .addCase(deletePost.fulfilled, (state, action) => {
+        state.posts = state.posts.filter(
+          (post) => post._id !== action.payload.post._id
+        );
+      })
+      builder
+      .addCase(updatePost.fulfilled, (state, action) => {
+        const posts = state.posts.map((post) => {
+            if (post._id === action.payload.post._id) {
+                post = action.payload.post;
+            }
+            return post;
+        });
+        state.posts = posts
+        state.isSuccess = true
+        state.isError = false;
+        state.message = action.payload.message
+    })
+    .addCase(updatePost.rejected, (state, action) => {
+      state.isError = true
+      state.isSuccess = false;
+      state.message = action.payload;
+      
+  })
+      .addCase(getPostById.fulfilled, (state, action) => {
+        state.post = action.payload.post;
+      });
+      builder
+    .addCase(getInfo.fulfilled, (state, action)=>{
+      state.info = action.payload
+  })
+    //     .addCase(getPostByName.fulfilled,(state,action)=>{
+    //       state.posts = action.payload
+    //     })
+  },
+});
+
 
 export const getAllPosts = createAsyncThunk("posts/getAllPosts", async () => {
   try {
@@ -90,83 +168,6 @@ export const getInfo = createAsyncThunk('auth/info', async ()=>{
 //   }
 // })
 
-export const postsSlice = createSlice({
-  name: "posts",
-  initialState,
-  reducers: {
-    reset: (state) => {
-      state.isLoading = false;
-    },
-    setPostToEdit: (state, action) =>{
-      state.postToEdit = action.payload
-    }
-  },
-  extraReducers: (builder) => {
-    builder
-      .addCase(getAllPosts.fulfilled, (state, action) => {
-        state.posts = action.payload;
-      })
-      .addCase(getAllPosts.pending, (state, action) => {
-        state.isLoading = true;
-      })
-      .addCase(createPost.fulfilled, (state, action) => {
-        state.posts = [action.payload, ...state.posts];
-      })
-      .addCase(like.fulfilled, (state, action) => {
-        const posts = state.posts.map((element) => {
-          if (element._id === action.payload._id) {
-            element = action.payload;
-          }
-          return element;
-        });
-        state.posts = posts;
-      });
-    builder.addCase(disLike.fulfilled, (state, action) => {
-      const posts = state.posts.map((post) => {
-        if (post._id === action.payload.post._id) {
-          post = action.payload.post;
-        }
-        return post;
-      });
-      state.posts = posts;
-    });
-    builder
-      .addCase(deletePost.fulfilled, (state, action) => {
-        state.posts = state.posts.filter(
-          (post) => post._id !== action.payload.post._id
-        );
-      })
-      builder
-      .addCase(updatePost.fulfilled, (state, action) => {
-        const posts = state.posts.map((post) => {
-            if (post._id === action.payload.post._id) {
-                post = action.payload.post;
-            }
-            return post;
-        });
-        state.posts = posts
-        state.isSuccess = true
-        state.isError = false;
-        state.message = action.payload.message
-    })
-    .addCase(updatePost.rejected, (state, action) => {
-      state.isError = true
-      state.isSuccess = false;
-      state.message = action.payload;
-      
-  })
-      .addCase(getPostById.fulfilled, (state, action) => {
-        state.post = action.payload;
-      });
-      builder
-    .addCase(getInfo.fulfilled, (state, action)=>{
-      state.info = action.payload
-  })
-    //     .addCase(getPostByName.fulfilled,(state,action)=>{
-    //       state.posts = action.payload
-    //     })
-  },
-});
 
 export const { reset, resetMessage   } = postsSlice.actions;
 export default postsSlice.reducer;
