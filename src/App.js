@@ -11,6 +11,7 @@ import PostUser from "./components/Users/User/Nav/Postuser/PostUser";
 import InfoUser from "./components/Users/User/Nav/infoUser/InfoUser";
 import FriendUser from "./components/Users/User/Nav/FriendsUser/FriendUser";
 import PostDetail from "./components/PostDetails/PostDetail";
+import NotFound from "./components/NotFound/NotFound";
 
 function App() {
 
@@ -28,6 +29,7 @@ function App() {
           <Route path="/PostUser" element={<PostUser />} />
           <Route path="/InfoUser" element={<InfoUser />} />
           <Route path="/FriendUser" element={<FriendUser />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </div>

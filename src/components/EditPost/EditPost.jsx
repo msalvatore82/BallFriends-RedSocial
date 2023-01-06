@@ -2,9 +2,11 @@ import { Button, Modal, Form, Input } from "antd";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
+import { useParams } from "react-router";
 import { updatePost } from "../../features/post/postsSlice";
 
 const EditPost = ({ visible, setVisible }) => {
+  const { _id } = useParams();
   const { post } = useSelector((state) => state.posts);
 
   const dispatch = useDispatch();
@@ -17,12 +19,13 @@ const EditPost = ({ visible, setVisible }) => {
 
     form.setFieldsValue(postEdit);
   }, [post]);
-  
 
-  const onFinish =  (values) => {
-    const postWithId = { ...values};
-    dispatch(updatePost(postWithId));
-    setVisible(false);
+  const onFinish = (values) => {
+    if (values != null) {
+      const postWithId = { ...values, _id: post._id };
+      setVisible(false);
+      dispatch(updatePost(postWithId));
+    }
   };
 
   const handleCancel = () => {
@@ -36,7 +39,7 @@ const EditPost = ({ visible, setVisible }) => {
       onCancel={handleCancel}
       footer={[]}
     >
-      <Form onFinish={onFinish}  form={form} >
+      <Form onFinish={onFinish} form={form}>
         <Form.Item name="post">
           <Input placeholder="Editar tu prublicacion" />
         </Form.Item>

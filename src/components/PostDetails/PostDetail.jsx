@@ -195,7 +195,7 @@ const PostDetail = () => {
           </div>
         </div>
         <div>
-          {/* {post} */}
+          
           <EditPost visible={isModalVisible} setVisible={setIsModalVisible} />
         </div>
       </div>
