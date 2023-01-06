@@ -38,8 +38,15 @@
   }
 
   .container-post-post:hover{
-    background-color: rgb(224, 224, 224);
-    cursor: pointer;
+    background-color: rgb(241, 241, 241);
+    box-shadow:
+    1px 1px $color-logo,
+    2px 2px $color-logo,
+    3px 3px $color-logo;
+-webkit-transform: translateX(-3px);
+transform: translateX(-3px);
+    
+}    cursor: pointer;
   }
   .ico-lke {
     color: $color-logo;
@@ -56,6 +63,7 @@
       color: gray;
       align-items: center;
       margin-left: 0.5rem;
+      cursor: pointer;
     }
     .comment-length {
       font-size: 0.8rem;
@@ -64,7 +72,14 @@
       margin-right: 0.5rem;
       border: none;
       background-color: transparent;
+      cursor: pointer;
     }
+
+    .comment-length:hover,
+    .like-length:hover{
+        text-decoration:underline 0.08rem;
+        
+      }
   }
 
   .container-like-comment-delete {
@@ -95,4 +110,4 @@
       margin-right: 0.5rem;
     }
   }
-}
+

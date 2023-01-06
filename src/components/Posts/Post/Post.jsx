@@ -43,6 +43,7 @@ const Post = () => {
               <p className="like-length">
                 {
                   <AiTwotoneLike
+                  onClick={() => navigate(`/post/${element._id}`)}
                     className="ico-lke"
                     style={{
                       fontSize: "25px",
@@ -53,10 +54,12 @@ const Post = () => {
                 }
                 {element.likes.length}
                 {element.likes.length === 1 ? " like" : " likes"}
+                
               </p>
             </div>
             <div className="comment-length" >
-              <p className="comment-length" >{element.comment.length } {element.comment.length === 1 ? " Comentario" : " Comentarios"} </p>
+              
+              <p onClick={() => navigate(`/post/${element._id}`)} className="comment-length" >{element.comment.length } {element.comment.length === 1 ? " Comentario" : " Comentarios"} </p>
             </div>
           </div>
         </div>
