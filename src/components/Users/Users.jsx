@@ -10,6 +10,7 @@ const Users = () => {
     dispatch(getUser());
   };
 
+
   useEffect(() => {
     Users();
     // eslint-disable-next-line

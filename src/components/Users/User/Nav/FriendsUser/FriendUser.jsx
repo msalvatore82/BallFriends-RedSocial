@@ -1,18 +1,34 @@
-import React from 'react'
-import { useSelector } from 'react-redux';
-import User from '../../User';
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  getUsers,
+} from "../../../../../features/users/usersSlice";
+
+import User from "../../User";
+import Followers from "./Followers/Followers";
+import Following from "./Following/Following";
 
 const FriendUser = () => {
-    const { user } = useSelector((state) => state.users);
-    console.log(user);
+  const { user, users } = useSelector((state) => state.users);
+  console.log(user)
+
 
   return (
     <div>
-        <User/>
-    
-    <p> {user.user.seguidos.length}</p>
+      <User />
+      <div>
+       
+        
+      </div>
+      <div>
+        
+       <Followers></Followers>
+      </div>
+      <div>
+        <Following/>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default FriendUser
+export default FriendUser;

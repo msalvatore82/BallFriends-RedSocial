@@ -29,12 +29,15 @@
 
     .icon-img-cover{
         text-align: end;
-        font-size: 1.2rem;
+        font-size: 2rem;
         margin-top: 1rem;
-        margin-right: 1rem;
+        margin-right: 2rem;
         background-color: transparent;
+    }
 
-
+    .icon-img-cover:hover{
+        cursor: pointer;
+        color: $color-logo;
     }
   }
   .nav-user {
@@ -79,13 +82,23 @@
     font-size: 1.5rem;
     color: gray;
     background: transparent;
-    margin-top: -3rem;
-    margin-left: 8rem;
+    margin-top: -4rem;
+    margin-left: 7.5rem;
   }
+
+  .icon-img-user:hover{
+   cursor: pointer;
+   color: $color-logo;
+  }
+
+
 
 
   .btn-edit-profile{
     border-radius: 5px;
+    border: none;
+    width: 12rem;
+    line-height: 2rem;
     background: #e4e6eb;
     font-weight: 600;
     margin-top: 0.5rem;
@@ -93,7 +106,9 @@
     cursor: pointer;
   }
   .btn-edit-profile:hover{
-    background-color: $back-hover;
+    background-color: $color-logo;
+    color: white;
+    font-size: 1rem;
   }
 
 

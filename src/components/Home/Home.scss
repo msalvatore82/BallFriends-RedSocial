@@ -13,13 +13,10 @@
 
   .sidebar-left {
     width: 35%;
-    border: 1px red solid;
     margin-left: 0.5rem;
-    margin-top: 0.5rem;
   }
   .sidebar-rigth {
     width: 35%;
-    border: 1px blue solid;
     margin-right: 0.5rem;
     margin-top: 0.5rem;
 
@@ -29,7 +26,7 @@
     flex-direction: column;
     width: 40%;
     gap: 0.5rem;
-    margin-top: 0.5rem;
+    margin-top: 1.5rem;
 
 
     .create-post {

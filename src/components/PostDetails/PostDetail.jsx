@@ -17,6 +17,7 @@ import avatar from "../../Asset/avatar-default.png";
 import postImg from "../../Asset/post1.jpeg";
 import "./PostDetails.scss";
 import CreateComment from "./CreateComment/CreateComment";
+import SidebarLeft from "../SidebarLeft/SidebarLeft";
 
 const PostDetail = () => {
   const { _id } = useParams();
@@ -39,7 +40,7 @@ const PostDetail = () => {
     //   {post.post}
     // </div>
     <div className="container-postdetail" >
-      <div className="sidebar-left">sidebar</div>
+      <div className="sidebar-left"><SidebarLeft/></div>
       <div>
         <div key={post._id} className="container-post-detail">
           <div className="container-head-post-detail ">
@@ -204,7 +205,7 @@ const PostDetail = () => {
             </div>
           </div>
         </div>
-        <div className="sidebar-rigth">sidebar derechas</div>
+        <div className="sidebar-rigth">  </div>
         <div>
           <EditPost visible={isModalVisible} setVisible={setIsModalVisible} />
         </div>

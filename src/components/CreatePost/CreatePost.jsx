@@ -96,6 +96,16 @@ const CreatePost = () => {
               onChange={onChange}
               placeholder="Que estas pensando" />
             </Form.Item>
+            <Form.Item>
+              <Input 
+              type="file"
+              className="input-img-post"
+              // name="img"
+              // value={img}
+              onChange={onChange}
+               />
+            </Form.Item>
+            
        
             <button
             className="button-publish"

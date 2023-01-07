@@ -13,6 +13,8 @@ import FriendUser from "./components/Users/User/Nav/FriendsUser/FriendUser";
 import PostDetail from "./components/PostDetails/PostDetail";
 import NotFound from "./components/NotFound/NotFound";
 import Footer from "./components/Footer/Footer";
+import Followers from "./components/Users/User/Nav/FriendsUser/Followers/Followers";
+import Follower from "./components/Users/User/Nav/FriendsUser/Followers/Follower/Follower";
 
 function App() {
 
@@ -24,12 +26,15 @@ function App() {
           <Route path="/home" element={<Home />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/user" element={<PostUser />} />
+          <Route path="/user" element={<User />} />
           <Route path="/posts" element={<Posts />} />
           <Route path="/Post/:_id" element={<PostDetail />} />
           <Route path="/PostUser" element={<PostUser />} />
           <Route path="/InfoUser" element={<InfoUser />} />
           <Route path="/FriendUser" element={<FriendUser />} />
+          <Route path="/Followers" element={<Followers />} />
+          <Route path="/getUserById/:_id" element={<Follower />} />
+
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />

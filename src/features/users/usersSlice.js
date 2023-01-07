@@ -6,16 +6,16 @@ const initialState = {
     user: {}
 };
 
-export const getUsers = createAsyncThunk("users/getUser", async(users) => {
+export const getUsers = createAsyncThunk("users/getUser", async() => {
     try {
-        return await userService.getUsers(users);
+        return await userService.getUsers();
     } catch (error) {
         console.error(error);
     }
 });
 
 export const getUser = createAsyncThunk(
-    "auth/getInfo",
+    "users/getInfo",
     async (user) => {
       try {
         return await userService.getUser(user);
@@ -24,6 +24,19 @@ export const getUser = createAsyncThunk(
       }
     }
   );
+
+  export const getUserById = createAsyncThunk(
+    "users/getUserById",
+    async (_id) => {
+      try {
+        return await userService.getUserById(_id);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+  );
+
+
 
 // export const follow = createAsyncThunk("users/follow", async(_id) => {
 //     try {
@@ -97,9 +110,9 @@ export const usersSlice = createSlice({
             //     });
             //     state.users = users;
             // })
-            // .addCase(getUsersByName.fulfilled, (state, action) => {
-            //     state.users = action.payload;
-            // })
+            .addCase(getUserById.fulfilled, (state, action) => {
+                state.user = action.payload;
+            })
             // .addCase(deleteUsers.fulfilled, (state, action) => {
             //     state.users = state.users.filter((user) => user._id !== action.payload.user._id)
             // })

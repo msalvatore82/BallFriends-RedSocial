@@ -5,12 +5,11 @@ import { Button } from "antd";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./Post.scss";
-import { deletePost, disLike, getPostById, like } from "../../../features/post/postsSlice";
+import { getPostById, like } from "../../../features/post/postsSlice";
 import CreateComment from "../../PostDetails/CreateComment/CreateComment";
 import { MdDeleteForever } from "react-icons/md";
 import avatar from "../../../Asset/avatar-default.png";
 import post from "../../../Asset/post1.jpeg"
-import { EditOutlined } from "@ant-design/icons";
 import EditPost from "../../EditPost/EditPost";
 import { useNavigate } from "react-router";
 
@@ -18,10 +17,6 @@ const Post = () => {
   const { posts } = useSelector((state) => state.posts);
   const navigate = useNavigate();
   const { user } = useSelector((state) => state.auth);
-
-  // const { user} = useSelector((state) => state.users);
-  // console.log(user);
-  // console.log(posts)
   const dispatch = useDispatch();
   const [visible, setVisible] = useState(false);
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -78,7 +73,7 @@ const Post = () => {
           <div className="container-like-comment-delete">
             <div className="container-like">
               <Button
-                onClick={() => {if (user) dispatch(like(post?._id)); else navigate("/login");}}
+                onClick={() => {if (user) dispatch(like(element?._id)); else navigate("/login");}}
                 style={{
                   border: "none",
                   background: "none",
@@ -94,7 +89,7 @@ const Post = () => {
                 }
               />
               <Button
-                onClick={() => {if (user) dispatch(like(post?._id)); else navigate("/login");}}
+                onClick={() => {if (user) dispatch(like(element?._id)); else navigate("/login");}}
                 style={{
                   border: "none",
                   background: "none",
@@ -137,7 +132,7 @@ const Post = () => {
                 }}
                 icon={
                   <MdDeleteForever
-                    onClick={() => {if (user) dispatch(like(post?._id)); else navigate("/login");}}
+                    onClick={() => {if (user) dispatch(like(element?._id)); else navigate("/login");}}
                     style={{
                       color: "gray",
                       fontSize: "25px",

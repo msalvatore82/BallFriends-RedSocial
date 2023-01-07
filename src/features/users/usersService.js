@@ -17,7 +17,17 @@ const getUser = async () => {
     
     return res.data;
   };
-  
+  const getUserById = async (_id)=>{
+    const user = JSON.parse(localStorage.getItem("user"));
+    const res = await axios.get(API_URL +"/users/getUserById/" + _id,{
+      headers: {
+        authorization: user?.token,
+      },
+    } );
+  return res.data;
+  };
+
+
 
 // const follow = async(_id) => {
 //     const user = JSON.parse(localStorage.getItem("user"));
@@ -60,7 +70,8 @@ const getUser = async () => {
 
 const usersService = {
     getUsers,
-    getUser
+    getUser,
+    getUserById
     // follow,
     // unfollow,
     // getUsersByName,

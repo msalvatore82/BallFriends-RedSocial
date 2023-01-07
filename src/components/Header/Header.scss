@@ -45,9 +45,15 @@
     }
 
     .logo-home,
+    .logo-logout,
     .logo-myteam,
-    .logo-team {
+    .logo-team,
+    .logo-user,
+    .logo-msj,
+    .logo-menu,
+    .logo-alert{
         color: $color-logo;
+        cursor: pointer;
     }
     
     .nav-central{

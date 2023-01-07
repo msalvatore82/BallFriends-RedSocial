@@ -1,12 +1,14 @@
 import React from "react";
 import CreatePost from "../CreatePost/CreatePost";
 import Posts from "../Posts/Posts";
+import SidebarLeft from "../SidebarLeft/SidebarLeft";
 import "./Home.scss";
 
 const Home = () => {
   return (
     <div className="container-home">
-      <div className="sidebar-left">sidebar</div>
+      {/* <div className="sidebar-left"> <SidebarLeft/></div> */}
+      <div className="sidebar-left"> </div>
       <div className="posts">
         <div className="create-post">
           <CreatePost />
@@ -15,7 +17,7 @@ const Home = () => {
           <Posts />
         </div>
       </div>
-      <div className="sidebar-rigth">sidebar derechas</div>
+      <div className="sidebar-rigth"></div>
     </div>
   );
 };

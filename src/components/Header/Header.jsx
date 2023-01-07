@@ -12,127 +12,160 @@ import {
 import "./Header.scss";
 import isolgo from "../../Asset/isologo.png";
 import { Link, useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { AiOutlineLogout } from "react-icons/ai";
+import { logout } from "../../features/auth/authSlice";
 
 const Header = () => {
   const { user } = useSelector((state) => state.auth);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-     useNavigate();
+  useNavigate();
   const { Search } = Input;
+
+  const onLogout = (e) => {
+    e.preventDefault();
+    dispatch(logout());
+    navigate("/");
+  };
   return (
     <div className="header-nav">
-      {user ? 
+      {user ? (
         <>
-      <nav className="nav">
-        <div className="nav-left">
-          <div className="picture">
-            <Link to="/home" >
-            <img src={isolgo} alt="isologo" className="isologo" />
-            </Link>
-          </div>
-          <div>
-            <Search
-              placeholder="input search text"
-              //   onSearch={onSearch}
-              style={{
-                width: 200,
-              }}
-            />
-          </div>
-          <div className="nav-central"></div>
-          <div
-            style={{
-              margin: 15,
-            }}
-          >
-            <Link to="/home">
-              <HomeFilled
-               title="inicio"
-               className="logo-home"
+          <nav className="nav">
+            <div className="nav-left">
+              <div className="picture">
+                <Link to="/home">
+                  <img src={isolgo} alt="isologo" className="isologo" />
+                </Link>
+              </div>
+              <div>
+                <Search
+                  placeholder="Buscar en BallFriends"
+                  //   onSearch={onSearch}
+                  style={{
+                    width: 200,
+                  }}
+                />
+              </div>
+              <div className="nav-central"></div>
+              <div
                 style={{
-                  fontSize: 25,
-                  marginLeft: 15,
-                  background:"none"
+                  margin: 15,
                 }}
-              />
-            </Link>
-            <Link to="/teams"> 
-            <TeamOutlined
-             title="Equipos"
-             className="logo-team"
-              style={{
-                fontSize: 25,
-                marginLeft: 15,
-                background:"none"
-              }}
-            />
-            </Link>
-            <Link to="/Myteams"> 
-            <SkinFilled
-            title="Mis-Equipos"
-            className="logo-myteam"
-              style={{
-                background:"none",
-                fontSize: 25,
-                marginLeft: 15,
-              }}
-            />
-            </Link>
-          </div>
-        </div>
-        <div className="nav-right">
-          <div>
-            <Input
-              placeholder="Buscar Deportistas"
-              //   onSearch={onSearch}
-              style={{
-                width: 200,
-              }}
-            />
-          </div>
+              >
+                <Link to="/home">
+                  <HomeFilled
+                    title="inicio"
+                    className="logo-home"
+                    style={{
+                      fontSize: 25,
+                      marginLeft: 15,
+                      background: "none",
+                    }}
+                  />
+                </Link>
+                <Link to="/teams">
+                  <TeamOutlined
+                    title="Equipos"
+                    className="logo-team"
+                    style={{
+                      fontSize: 25,
+                      marginLeft: 15,
+                      background: "none",
+                    }}
+                  />
+                </Link>
+                <Link to="/Myteams">
+                  <SkinFilled
+                    title="Mis-Equipos"
+                    className="logo-myteam"
+                    style={{
+                      background: "none",
+                      fontSize: 25,
+                      marginLeft: 15,
+                    }}
+                  />
+                </Link>
+              </div>
+            </div>
+            <div className="nav-right">
+              <div>
+                <Input
+                  placeholder="Buscar Deportistas"
+                  //   onSearch={onSearch}
+                  style={{
+                    width: 200,
+                  }}
+                />
+              </div>
 
-          <div>
-            <AppstoreOutlined
-              style={{
-                fontSize: 25,
-                background:"none"
-              }}
-            />
-          </div>
-          <div>
-            <MessageOutlined
-              style={{
-                fontSize: 25,
-                background:"none"
-              }}
-            />
-          </div>
-          <div>
-            <AlertOutlined
-              style={{
-                fontSize: 25,
-                background:"none"
-              }}
-            />
-          </div>
-          <div>
-            <Link to="/user">
-              <UserOutlined
-                style={{
-                  fontSize: 25,
-                  background:"none"
-                }}
-              />{" "}
-            </Link>
-          </div>
-        </div>
-      </nav>
-      </>
-        : 
-        <>
-        <Link to="/login"></Link>
+              <div>
+                <AppstoreOutlined
+                  title="Menú"
+                  className="logo-menu"
+                  style={{
+                    fontSize: 25,
+                    background: "none",
+                  }}
+                />
+              </div>
+              <div>
+                <MessageOutlined
+                  title="Mensanjes"
+                  className="logo-msj"
+                  style={{
+                    fontSize: 25,
+                    background: "none",
+                  }}
+                />
+              </div>
+              <div>
+                <AlertOutlined
+                  title="Notificaciones"
+                  className="logo-alert"
+                  style={{
+                    fontSize: 25,
+                    background: "none",
+                  }}
+                />
+              </div>
+              <div>
+                <Link to="/user">
+                  <UserOutlined
+                    title="Usuario"
+                    className="logo-user"
+                    style={{
+                      fontSize: 25,
+                      background: "none",
+                    }}
+                  />
+                </Link>
+              </div>
+              <div>
+                <div>
+                  <Link to="/login">
+                    <AiOutlineLogout
+                      onClick={onLogout}
+                      title="Cerrar sesión"
+                      className="logo-logout"
+                      style={{
+                        fontSize: 25,
+                        background: "none",
+                      }}
+                    />
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </nav>
         </>
-}
+      ) : (
+        <>
+          <Link to="/login"></Link>
+        </>
+      )}
     </div>
   );
 };
