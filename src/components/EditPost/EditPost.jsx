@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { useParams } from "react-router";
 import { updatePost } from "../../features/post/postsSlice";
+import "./EditPost.scss"
 
 const EditPost = ({ visible, setVisible }) => {
   const { _id } = useParams();
@@ -44,9 +45,9 @@ const EditPost = ({ visible, setVisible }) => {
           <Input placeholder="Editar tu prublicacion" />
         </Form.Item>
         <Form.Item>
-          <Button type="primary" htmlType="submit">
-            Submit
-          </Button>
+          <button className="btn-post-edit" type="primary" htmlType="submit">
+            Actualizar Publicacion
+          </button>
         </Form.Item>
       </Form>
     </Modal>
