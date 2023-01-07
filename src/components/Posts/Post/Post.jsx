@@ -17,6 +17,7 @@ import { useNavigate } from "react-router";
 const Post = () => {
   const { posts } = useSelector((state) => state.posts);
   const navigate = useNavigate();
+  const { user } = useSelector((state) => state.auth);
 
   // const { user} = useSelector((state) => state.users);
   // console.log(user);
@@ -77,7 +78,7 @@ const Post = () => {
           <div className="container-like-comment-delete">
             <div className="container-like">
               <Button
-                onClick={() => dispatch(like(element._id))}
+                onClick={() => {if (user) dispatch(like(post?._id)); else navigate("/login");}}
                 style={{
                   border: "none",
                   background: "none",
@@ -93,7 +94,7 @@ const Post = () => {
                 }
               />
               <Button
-                onClick={() => dispatch(disLike(element._id))}
+                onClick={() => {if (user) dispatch(like(post?._id)); else navigate("/login");}}
                 style={{
                   border: "none",
                   background: "none",
@@ -136,7 +137,7 @@ const Post = () => {
                 }}
                 icon={
                   <MdDeleteForever
-                    onClick={() => dispatch(deletePost(element._id))}
+                    onClick={() => {if (user) dispatch(like(post?._id)); else navigate("/login");}}
                     style={{
                       color: "gray",
                       fontSize: "25px",

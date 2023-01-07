@@ -12,6 +12,7 @@ import InfoUser from "./components/Users/User/Nav/infoUser/InfoUser";
 import FriendUser from "./components/Users/User/Nav/FriendsUser/FriendUser";
 import PostDetail from "./components/PostDetails/PostDetail";
 import NotFound from "./components/NotFound/NotFound";
+import Footer from "./components/Footer/Footer";
 
 function App() {
 
@@ -23,7 +24,7 @@ function App() {
           <Route path="/home" element={<Home />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/user" element={<User />} />
+          <Route path="/user" element={<PostUser />} />
           <Route path="/posts" element={<Posts />} />
           <Route path="/Post/:_id" element={<PostDetail />} />
           <Route path="/PostUser" element={<PostUser />} />
@@ -31,6 +32,7 @@ function App() {
           <Route path="/FriendUser" element={<FriendUser />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <Footer />
       </BrowserRouter>
     </div>
   );
