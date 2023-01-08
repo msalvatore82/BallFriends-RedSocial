@@ -12,7 +12,7 @@
 
 ## Sobre el proyecto
 
-En este proyecto se unifica todo lo aprendido durante el bootcamp en ![image](/src/Asset/the%20bridge.svg).  
+En este proyecto se unifica todo lo aprendido durante el bootcamp en the bright talent valencia.  
 En este proyecto se desarrollará una red social en la que los usuarios se registrarán, logearán y publicarán utilizando la API de la red social que creó anteriormente.
 
 
