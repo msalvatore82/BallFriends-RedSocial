@@ -5,7 +5,7 @@ import { Button } from "antd";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./Post.scss";
-import { getPostById, like } from "../../../features/post/postsSlice";
+import { deletePost, getPostById, like } from "../../../features/post/postsSlice";
 import CreateComment from "../../PostDetails/CreateComment/CreateComment";
 import { MdDeleteForever } from "react-icons/md";
 import avatar from "../../../Asset/avatar-default.png";
@@ -132,7 +132,7 @@ const Post = () => {
                 }}
                 icon={
                   <MdDeleteForever
-                    onClick={() => {if (user) dispatch(like(element?._id)); else navigate("/login");}}
+                    onClick={() => {if (user) dispatch(deletePost(element?._id)); else navigate("/login");}}
                     style={{
                       color: "gray",
                       fontSize: "25px",
