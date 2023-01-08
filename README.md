@@ -37,7 +37,7 @@ Luego, inicie la interfaz React-redux.
 ```
 $ npm start
 ```
-<p align="center" > ### Ahora podrá navegar a través de la interfaz </p>
+<p align="center" > Ahora podrá navegar a través de la interfaz </p>
 
 
 ### 💻 Tecnologias usadas
