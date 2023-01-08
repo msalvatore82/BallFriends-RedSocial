@@ -1,6 +1,7 @@
-# BallFriends ![image](/src/Asset/logoconletras.png)
+#  <div align="center" > BallFriends ![image](/src/Asset/logoconletras.png) </div> 
 
-# <div align="center" > ![image](/src/Asset/MERN.png)  </div> 
+
+# <div align="center" > ![image](/src/Asset/MERN.png) height="165em" </div> 
 
 ## Índice
 
