@@ -1,46 +1,129 @@
-# Getting Started with Create React App and Redux
+# BallFriends ![image](/src/Asset/logoconletras.png)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+# <div align="center" > ![image](/src/Asset/MERN.png)  </div> 
 
-## Available Scripts
+## Índice
 
-In the project directory, you can run:
+- Sobre el proyecto
+  - Instalacion y despliegue
+  - Tecnologias Usadas
+  - Requerimientos
+  - Desafios que se presentaron
+  - Autor
 
-### `npm start`
+## Sobre el proyecto
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+En este proyecto se unifica todo lo aprendido durante el bootcamp en ![image](/src/Asset/the%20bridge.svg).  
+En este proyecto se desarrollará una red social en la que los usuarios se registrarán, logearán y publicarán utilizando la API de la red social que creó anteriormente.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+### 💫 Instalacion y despliegue
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Para descargar el repositorio, en Visual Studio, abra una terminal y ejecute el siguiente comando:
 
-### `npm run build`
+BallFriends frontend:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+$ git clone https://github.com/msalvatore82/BallFriends-RedSocial.git
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+A continuación, deberá descargar los módulos externos. Para hacer esto, ejecute el siguiente comando:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+$ npm i
+```
 
-### `npm run eject`
+Luego, inicie la interfaz React-redux.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```
+$ npm start
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Ahora podrá navegar a través de la interfaz.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### 💻 Tecnologias usedas
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- HTML
+- Sass
+- React
+- Redux
+- React-Router
+- NodeJS
+- MongoDB
+- Sequelize
+- AWS Web Service (Para el despliegue)
+- Axios
+- Ant-Design
+- Guards
 
-## Learn More
+### ⚔️ Requisitos
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Crear el Frontend de la API desarrollado con ateorioridad.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Registro de usuarios.
+- Login de usuarios.
+- Que se pueda ver las publicaciones y crear nuevas.
+- Que se puedan editar y eliminar las publicaciones que hace el usuario logeado
+- Dar/quitar Like a post.
+- Buscador de perfiles de usuario o de posts
+- Que en tu perfil puedas ver tus datos y tus posts
+- Que puedas comentar en las publicaciones
+
+#### ⚔️ Componentes mínimos:
+
+- Register
+- Login
+- Home
+- Posts(publicaciones)
+    - Post
+    - AddPost
+- PostDetail
+    - AddComment
+- Perfil. Vista perfil con los datos del usuario logeado y sus posts
+- Header
+- Footer
+
+
+## Implementacion a futuro
+
+- El usuario puede seguir a otros usuarios y tener seguidores
+- CRUD de los comentarios
+- Que solo puedas editar y eliminar los comentarios que tu creas.
+- El usuario puede subir fotos en los posts o cambiar su foto de perfil.
+- El usuario puede dar likes a los comentarios de los posts.
+- El usuario en su perfil puede ver el número de seguidores y número de a cuantos sigue
+- El usuario puede ver quien le sigue y a quién sigue
+- El usuario en su perfil puede ver los posts a los que le ha dado like
+- Implementación de guards
+- Que sea responsive
+
+<!-- Si QUIERE CONTRIBUIR -->
+
+## contribuir
+
+Las contribuciones son lo que hace que la comunidad de código abierto sea un lugar increíble para aprender, inspirar y crear. Cualquier contribución que hagas es **muy apreciada**.
+
+Si tiene una sugerencia que mejoraría esto, bifurque el repositorio y cree una solicitud de extracción. También puede simplemente abrir un problema con la etiqueta "mejora".
+¡No olvides darle una estrella al proyecto! ¡Gracias de nuevo!
+
+1. Bifurcar el proyecto
+2. Cree su rama de características (`git checkout -b feature/YourName`)
+3. Confirme sus cambios (`git commit -m 'Add some YourName'`)
+4. Empuje a la sucursal (`git push origin feature/YourName`)
+5. Abra una solicitud de extracción
+
+<p align="right">(<a href="#readme-top">volver arriba</a>)</p>
+
+
+
+<!-- LICENCIA -->
+## Licencia
+
+Este proyecto está bajo licencia de Matias Salvatore
+
+<p align="right">(<a href="#readme-top">volver arriba</a>)</p>
+
+
+## Authors
+
+### [Matias](https://github.com/msalvatore82)
