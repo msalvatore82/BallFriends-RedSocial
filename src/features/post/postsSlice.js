@@ -82,9 +82,9 @@ export const postsSlice = createSlice({
     .addCase(getInfo.fulfilled, (state, action)=>{
       state.info = action.payload
   })
-    //     .addCase(getPostByName.fulfilled,(state,action)=>{
-    //       state.posts = action.payload
-    //     })
+        .addCase(getPostByName.fulfilled,(state,action)=>{
+          state.posts = action.payload
+        })
   },
 });
 
@@ -160,13 +160,13 @@ export const getInfo = createAsyncThunk('auth/info', async ()=>{
   }
 })
 
-// export const getPostByName = createAsyncThunk("posts/getPostByName", async(title)=>{
-//   try {
-//     return await postsService.getPostByName(title)
-//   } catch (error) {
-//     console.error(error)
-//   }
-// })
+export const getPostByName = createAsyncThunk("posts/getPostByName", async(postName)=>{
+  try {
+    return await postsService.getPostByName(postName)
+  } catch (error) {
+    console.error(error)
+  }
+})
 
 
 export const { reset, resetMessage   } = postsSlice.actions;

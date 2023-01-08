@@ -1,0 +1,144 @@
+@import "colors";
+
+.container-user-info {
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+  justify-content: center;
+  align-items: flex-start;
+  line-height: auto;
+  width: 70%;
+
+  .info-user {
+    width: 40%;
+  }
+
+  .info-detail {
+    border: 0.2rem solid $backgraund-color;
+    width: 60%;
+    margin-left: 2rem;
+    border-radius: 1rem;
+
+    .video-cv {
+      width: 95%;
+      margin-top: 1rem;
+      border-radius: 0.5rem;
+      border: 5px solid $backgraund-color;
+    }
+
+    .info-activity {
+      border: 1px solid $backgraund-color;
+      margin: auto;
+      width: 95%;
+    }
+    .item-activity {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: flex-start;
+      align-content: flex-start;
+      border-bottom: 0.1rem solid $color-logo;
+      margin: 1rem;
+      font-size: 1rem;
+      width: 40%;
+    }
+    .item-activity-post{
+        margin-top: 0.5rem;
+            .post-one-user{
+                border: 5px solid $backgraund-color;
+                border-radius: 10px;
+                width: 80%;
+                margin: auto;
+                padding: 0.5rem;
+                margin-top: 0.5rem;
+                margin-bottom: 0.5rem;
+            }
+            .post-one-user:hover{
+                border: 5px solid $backgraund-color;
+                background: $backgraund-color;
+                cursor: pointer;
+            }
+    }
+  }
+
+  .avatar-infouser {
+    border-radius: 50%;
+    width: 20rem;
+    margin: auto;
+    margin-top: 0.5rem;
+  }
+  .name-mail-infouser {
+    font-size: 2rem;
+    text-align: left;
+    line-height: 0.2rem;
+    margin-left: 0.5rem;
+  }
+
+  .mail {
+    font-size: 0.9rem;
+    color: gray;
+  }
+
+  .about-me {
+    text-align: left;
+    margin-left: 0.5rem;
+  }
+  .text-about-me {
+    margin-top: -1.4rem;
+  }
+
+  .btn-edit-profile {
+    width: 97%;
+    margin-top: 0.5rem;
+    line-height: 2rem;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+  }
+
+  .btn-edit-profile:hover {
+    cursor: pointer;
+    background-color: $color-logo;
+    color: white;
+  }
+
+  .count-follower-following {
+    font-size: 1.2rem;
+    text-align: left;
+    margin-left: 0.5rem;
+  }
+}
+
+.nav-info-user {
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+  justify-content: center;
+  align-items: flex-start;
+
+  .nav-user {
+    width: 70%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    justify-content: space-evenly;
+    margin: 5px;
+    border-radius: 1rem;
+    line-height: 2rem;
+    padding: 5px;
+    background-color: $backgraund-color;
+
+    .iten-nav-user {
+      all: unset;
+      cursor: pointer;
+      color: $color-logo;
+      font-weight: 700;
+    }
+    .iten-nav-user:hover {
+      text-shadow: 0px 0px 50px rgba(0, 0, 0);
+    }
+  }
+}

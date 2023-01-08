@@ -2,7 +2,7 @@ import { Form, Input, Modal } from "antd";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createPost, getAllPosts } from "../../features/post/postsSlice";
-import avatar from "../../Asset/avatar-default.png"
+import avatar from "../../Asset/avatar-default.png";
 
 import "./CreatePost.scss";
 
@@ -22,7 +22,7 @@ const CreatePost = () => {
     });
   };
   const dispatch = useDispatch();
-  
+
   const onChange = (e) => {
     setPostData((prevState) => ({
       ...prevState,
@@ -70,52 +70,54 @@ const CreatePost = () => {
           title="Crear publicación"
           onOk={handleOk}
           onCancel={handleCancel}
-          footer={[
-            
-          ]}
+          footer={[]}
         >
-          <fom >
+          <fom>
             <div className="head-create-post">
-            <img className="avatar-user-modal" src={avatar} alt="" srcset="" />
-            {/* <p>{user.user.name}</p> */}
-            <p>usuario</p>
+              <img
+                className="avatar-user-modal"
+                src={avatar}
+                alt=""
+                srcset=""
+              />
+              {/* <p>{user.user.name}</p> */}
+              <p>usuario</p>
             </div>
-          
-            <Form.Item 
-            rules={[
-                 {
+            <Form.Item
+              rules={[
+                {
                   required: true,
                   message: "por Favor comparta algo",
                 },
               ]}
             >
-              <Input 
-              className="input-create-post"
-              name="post"
-              value={post}
-              onChange={onChange}
-              placeholder="Que estas pensando" />
+              <Input
+                className="input-create-post"
+                name="post"
+                value={post}
+                onChange={onChange}
+                placeholder="Que estas pensando"
+              />
             </Form.Item>
             <Form.Item>
-              <Input 
-              type="file"
-              className="input-img-post"
-              // name="img"
-              // value={img}
-              onChange={onChange}
-               />
+              <Input
+                type="file"
+                className="input-img-post"
+                // name="img"
+                // value={img}
+                onChange={onChange}
+              />
             </Form.Item>
-            
-       
             <button
-            className="button-publish"
+              className="button-publish"
               key="submit"
               type="primary"
               loading={loading}
               onClick={onSubmit}
             >
               Publicar
-            </button>,
+            </button>
+            ,
           </fom>
         </Modal>
       </>

@@ -26,6 +26,10 @@ const getUser = async () => {
     } );
   return res.data;
   };
+  const getUserByName = async(name) => {
+    const res = await axios.get(API_URL + "/users/getUserByName/" + name);
+    return res.data;
+};
 
 
 
@@ -53,10 +57,7 @@ const getUser = async () => {
 //     return res.data;
 // };
 
-// const getUsersByName = async(name) => {
-//     const res = await axios.get(API_URL + "/users/searchByName/" + name);
-//     return res.data;
-// };
+
 
 // const deleteUsers = async(_id) => {
 //     const user = JSON.parse(localStorage.getItem("user"));
@@ -71,10 +72,10 @@ const getUser = async () => {
 const usersService = {
     getUsers,
     getUser,
-    getUserById
+    getUserById,
+    getUserByName,
     // follow,
     // unfollow,
-    // getUsersByName,
     // deleteUsers,
 
 };

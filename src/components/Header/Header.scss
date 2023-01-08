@@ -26,6 +26,27 @@
        
     }
 
+    .input-search{
+        border: 2px solid $backgraund-color;
+        border-radius: 5px;
+        line-height: 2rem;
+        color: gray;
+    }
+
+    input[name="text"]::-webkit-input-placeholder {
+        position: relative;
+        color: rgb(199, 199, 199);
+        font-size: 0.90rem;
+        padding: 0.7rem;
+        transition: 0.3s ease-in-out;
+      }
+
+      input[name="text"]:focus::-webkit-input-placeholder {
+        position: absolute;
+        font-size: 0.5rem;
+        padding: 0;
+      }
+
     .nav-left{
         display: flex;
         flex-wrap: wrap;

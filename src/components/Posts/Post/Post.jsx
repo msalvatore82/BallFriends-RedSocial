@@ -27,6 +27,21 @@ const Post = () => {
     setIsModalVisible(true);
   };
 
+  const getDateDetail = (date) => {
+    const dateDetail = new Date(date);
+    const hours =
+      dateDetail.getHours() > 10
+        ? `${dateDetail.getHours()}`
+        : `0${dateDetail.getHours()}`;
+    const minutes =
+      dateDetail.getMinutes() > 10
+        ? `${dateDetail.getMinutes()}`
+        : `0${dateDetail.getMinutes()}`;
+    return `${dateDetail.getDate()} ${dateDetail
+      .toLocaleString("es-ES", { month: "short" })
+      .toLowerCase()}. ${dateDetail.getFullYear()} - ${hours}:${minutes}`;
+  };
+
 
 
   return (
@@ -35,9 +50,11 @@ const Post = () => {
         <div key={idx} className="container-post" >
         <div className="container-head-post ">
           <img className="avatar-user-modal" src={avatar} alt="" srcset="" />
-          {/* {console.log(element)} */}
           <div > {element.userId.name}</div>
-          <p></p>
+          <p className="date-post">
+                {getDateDetail(element.createdAt)}
+                {element.createdAt !== element.updatedAt ? " (Editado)" : null}
+              </p>
         </div>
         <div className="container-post-post">
           <p style={{
@@ -114,7 +131,7 @@ const Post = () => {
                 }}
                 icon={
                   <BiCommentDots
-                    onClick={() => setVisible(element._id)}
+                  onClick={() => navigate(`/post/${element._id}`)}
                     style={{
                       color: "gray",
                       fontSize: "25px",

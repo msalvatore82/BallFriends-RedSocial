@@ -35,6 +35,13 @@ export const getUser = createAsyncThunk(
       }
     }
   );
+  export const getUserByName = createAsyncThunk("users/getUserByName", async(name) => {
+    try {
+        return await userService.getUserByName(name);
+    } catch (error) {
+        console.error(error);
+    }
+});
 
 
 
@@ -54,13 +61,7 @@ export const getUser = createAsyncThunk(
 //     }
 // });
 
-// export const getUsersByName = createAsyncThunk("users/byName", async(name) => {
-//     try {
-//         return await userService.getUsersByName(name);
-//     } catch (error) {
-//         console.error(error);
-//     }
-// });
+
 
 // export const deleteUsers = createAsyncThunk("users/delete", async(name) => {
 //     try {
@@ -92,6 +93,12 @@ export const usersSlice = createSlice({
             .addCase(getUser.fulfilled, (state, action) => {
                 state.user = action.payload;
             })
+            .addCase(getUserByName.fulfilled,(state,action)=>{
+                state.users = action.payload
+              })
+              .addCase(getUserById.fulfilled, (state, action) => {
+                state.user = action.payload;
+            })
             // .addCase(follow.fulfilled, (state, action) => {
             //     const users = state.users.map((user) => {
             //         if (user._id === action.payload.user._id) {
@@ -110,9 +117,7 @@ export const usersSlice = createSlice({
             //     });
             //     state.users = users;
             // })
-            .addCase(getUserById.fulfilled, (state, action) => {
-                state.user = action.payload;
-            })
+           
             // .addCase(deleteUsers.fulfilled, (state, action) => {
             //     state.users = state.users.filter((user) => user._id !== action.payload.user._id)
             // })

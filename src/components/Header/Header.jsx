@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Input } from "antd";
 import {
   AlertOutlined,
@@ -13,13 +13,20 @@ import "./Header.scss";
 import isolgo from "../../Asset/isologo.png";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { AiOutlineLogout } from "react-icons/ai";
+import { AiOutlineLogout, AiOutlineSearch } from "react-icons/ai";
 import { logout } from "../../features/auth/authSlice";
 
 const Header = () => {
   const { user } = useSelector((state) => state.auth);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const [text, setText] = useState("");
+  const handleChange = (e) => {
+    setText(e.target.value);
+    if (e.key === "Enter") {
+      navigate("/search/" + text);
+    }
+  };
 
   useNavigate();
   const { Search } = Input;
@@ -27,7 +34,7 @@ const Header = () => {
   const onLogout = (e) => {
     e.preventDefault();
     dispatch(logout());
-    navigate("/");
+    navigate("/login");
   };
   return (
     <div className="header-nav">
@@ -41,12 +48,11 @@ const Header = () => {
                 </Link>
               </div>
               <div>
-                <Search
-                  placeholder="Buscar en BallFriends"
-                  //   onSearch={onSearch}
-                  style={{
-                    width: 200,
-                  }}
+                <input
+                  className="input-search"
+                  onKeyUp={handleChange}
+                  placeholder="Buscar publicación"
+                  name="text"
                 />
               </div>
               <div className="nav-central"></div>

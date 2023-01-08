@@ -32,7 +32,16 @@
     align-items: center;
     gap: 0.5rem;
     margin-left: 0.5rem;
+    .date-post{
+        font-size: 0.8rem;
+        margin-top: 1rem;
+        margin-left: 17rem;
+        color: rgb(185, 185, 185);
+        text-align: right;
+    
+      }
   }
+  
 
   .container-post {
     line-height: 8rem;

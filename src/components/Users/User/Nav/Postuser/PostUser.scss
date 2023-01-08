@@ -1,0 +1,45 @@
+@import "colors";
+
+.constainer-postUser{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    border: 2px solid red;
+
+    .constainer-postUser-one{
+        border: 0.4rem solid $backgraund-color;
+        border-radius: 1rem;
+        width: 50%;
+        margin: 0.4rem;
+        .container-post-img{
+            width: 100%;
+            padding: 0;
+          }
+    }
+
+    .constainer-postUser-one:hover{
+       cursor: pointer;
+    }
+
+    .postUser{
+        background-color: $backgraund-color;
+        padding: 1rem;
+        font-size: 1.2rem;
+        line-height: auto;
+    }
+
+    .container-counter-detail{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        border-top: 0.5rem solid $backgraund-color;
+    }
+    .date-post{
+        color: rgb(196, 196, 196);
+        text-align: right;
+        margin-right: 0.2rem;
+        font-size: 0.7rem;
+    }
+}

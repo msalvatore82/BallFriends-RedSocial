@@ -18,7 +18,8 @@ const Footer = () => {
                   <img src={logo} alt="logo" />
                 </a>
                 <p>
-                La red social de los deportistas. Jugadores, entrenadores, managers y directivos, todos en el mismo lugar.
+                  La red social de los deportistas. Jugadores, entrenadores,
+                  managers y directivos, todos en el mismo lugar.
                 </p>
                 <div class="hr"></div>
                 <h6>TECNOLOGIAS UTILIZADAS</h6>
@@ -26,57 +27,52 @@ const Footer = () => {
                   <ul>
                     <li>
                       <a class="hover-target" href="">
-                        <i class="fab fa-facebook-f">
-                          <FaReact
-                            style={{
-                              fontSize: 25,
-                            }}
-                          />
-                        </i>
+                        <FaReact
+                          title="React"
+                          style={{
+                            fontSize: 25,
+                          }}
+                        />
                       </a>
                     </li>
                     <li>
                       <a class="hover-target" href="">
-                        <i class="fab fa-linkedin-in">
-                          <FaNodeJs
-                            style={{
-                              fontSize: 25,
-                            }}
-                          />
-                        </i>
+                        <FaNodeJs
+                          title="NodeJs"
+                          style={{
+                            fontSize: 25,
+                          }}
+                        />
                       </a>
                     </li>
                     <li>
                       <a class="hover-target" href="">
-                        <i class="fab fa-github">
-                          <SiSequelize
-                            style={{
-                              fontSize: 25,
-                            }}
-                          />
-                        </i>
+                        <SiSequelize
+                          title="Sequelize"
+                          style={{
+                            fontSize: 25,
+                          }}
+                        />
                       </a>
                     </li>
                     <li>
                       <a class="hover-target" href="">
-                        <i class="fab fa-behance">
-                          <SiMongodb
-                            style={{
-                              fontSize: 25,
-                            }}
-                          />
-                        </i>
+                        <SiMongodb
+                          title="MongoDB"
+                          style={{
+                            fontSize: 25,
+                          }}
+                        />
                       </a>
                     </li>
                     <li>
                       <a class="hover-target" href="">
-                        <i class="fab fa-pinterest-p">
-                          <SiRedux
-                            style={{
-                              fontSize: 25,
-                            }}
-                          />
-                        </i>
+                        <SiRedux
+                          title="Redux"
+                          style={{
+                            fontSize: 25,
+                          }}
+                        />
                       </a>
                     </li>
                   </ul>
@@ -89,7 +85,7 @@ const Footer = () => {
 
       <footer>
         <p>
-          Copyright &copy; 2022 {" "}
+          Copyright &copy; 2022{" "}
           <img
             src={logosmall}
             alt="logo"
@@ -97,7 +93,7 @@ const Footer = () => {
               marginBottom: -3,
             }}
           />
-           {"  "}All Rights Reserved.
+          {"  "}All Rights Reserved.
         </p>
       </footer>
     </div>
