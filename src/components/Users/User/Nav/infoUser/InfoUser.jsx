@@ -104,7 +104,7 @@ const InfoUser = () => {
         </div>
         <p>
           Volver al Home{" "}
-          <Link to="/home">
+          <Link to="/">
             <HomeFilled
               title="inicio"
               className="logo-home"

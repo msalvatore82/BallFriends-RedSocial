@@ -49,7 +49,7 @@ setIsModalVisible(true);
     e.preventDefault();
     dispatch(login(formData));
     clearState()
-    navigate("/home")
+    navigate("/")
   };
 
   return (

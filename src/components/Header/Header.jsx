@@ -43,7 +43,7 @@ const Header = () => {
           <nav className="nav">
             <div className="nav-left">
               <div className="picture">
-                <Link to="/home">
+                <Link to="/">
                   <img src={isolgo} alt="isologo" className="isologo" />
                 </Link>
               </div>

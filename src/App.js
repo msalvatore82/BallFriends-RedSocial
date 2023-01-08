@@ -13,9 +13,9 @@ import FriendUser from "./components/Users/User/Nav/FriendsUser/FriendUser";
 import PostDetail from "./components/PostDetails/PostDetail";
 import NotFound from "./components/NotFound/NotFound";
 import Footer from "./components/Footer/Footer";
-// import Followers from "./components/Users/User/Nav/FriendsUser/Followers/Followers";
-// import Follower from "./components/Users/User/Nav/FriendsUser/Followers/Follower/Follower";
 import SearchPost from "./components/SearchUser/SearchPost";
+import PrivateZone from "./guards/PrivateZone";
+
 
 function App() {
 
@@ -24,20 +24,16 @@ function App() {
       <BrowserRouter>
          <Header />
         <Routes>
-          <Route path="/home" element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/user" element={<User />} />
+          <Route path="/user" element={ <PrivateZone> <User /> </PrivateZone>} />
           <Route path="/posts" element={<Posts />} />
-          <Route path="/Post/:_id" element={<PostDetail />} />
-          <Route path="/PostUser" element={<PostUser />} />
-          <Route path="/InfoUser" element={<InfoUser />} />
-          <Route path="/FriendUser" element={<FriendUser />} />
-          {/* <Route path="/Followers" element={<Followers />} /> */}
-          {/* <Route path="/getUserById/:_id" element={<Follower />} /> */}
+          <Route path="/Post/:_id" element={<PrivateZone> <PostDetail /> </PrivateZone>} />
+          <Route path="/PostUser" element={<PrivateZone><PostUser /></PrivateZone>} />
+          <Route path="/InfoUser" element={<PrivateZone><InfoUser /></PrivateZone>} />
+          <Route path="/FriendUser" element={<PrivateZone><FriendUser /></PrivateZone>} />
           <Route path="/search/:postName" element={<SearchPost />} />
-
-
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />
