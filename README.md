@@ -82,6 +82,12 @@ Crear el Frontend de la API desarrollado con ateorioridad.
 - Header
 - Footer
 
+## Desafios que se presentaron
+
+En la etapa de maquetación diseñé un estructura que con el pasar del tiempo se fue volviendo inviable, empecé a tener muchos problemas de relaciones, por lo tanto tuve que repensar el mapeo de la misma y corregir los errores cometidos.
+Al principio me costó mucho tiempo entender el flujo de la información entre componentes, y como traer y llevar la información, una vez que logre descifrar el flujo y las herramientas, los componentes fueron fluyendo.
+Otro de los desafíos que me surgió fue la de debuggear sin errores a la vista, ya que tuve algunos bugs que no se mostraban por consola.
+Creo que el mayor desafío que se me presento fue la de trabajar solo, sin la ayuda de los tutores, pero hemos tenido algunas charlas con #[Alex](https://github.com/radikalex)  que me ayudó mucho en un parón importante que tuve.
 
 ## Implementacion a futuro
 
