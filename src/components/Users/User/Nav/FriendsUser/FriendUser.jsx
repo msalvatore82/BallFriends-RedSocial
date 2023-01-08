@@ -1,31 +1,24 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import {
-  getUsers,
-} from "../../../../../features/users/usersSlice";
-
+import { useSelector } from "react-redux";
 import User from "../../User";
 import Followers from "./Followers/Followers";
 import Following from "./Following/Following";
 
 const FriendUser = () => {
-  const { user, users } = useSelector((state) => state.users);
-  console.log(user)
-
+  const { user } = useSelector((state) => state.users);
+  console.log(user);
 
   return (
     <div>
       <User />
-      <div>
-       
-        
+      <div className="container-frienduser">
+      <div className="container-card-follower">
+        <Followers />
       </div>
-      <div>
-        
-       <Followers></Followers>
+      <div className="container-card-following">
+        <Following />
       </div>
-      <div>
-        <Following/>
+
       </div>
     </div>
   );

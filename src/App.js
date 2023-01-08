@@ -13,8 +13,8 @@ import FriendUser from "./components/Users/User/Nav/FriendsUser/FriendUser";
 import PostDetail from "./components/PostDetails/PostDetail";
 import NotFound from "./components/NotFound/NotFound";
 import Footer from "./components/Footer/Footer";
-import Followers from "./components/Users/User/Nav/FriendsUser/Followers/Followers";
-import Follower from "./components/Users/User/Nav/FriendsUser/Followers/Follower/Follower";
+// import Followers from "./components/Users/User/Nav/FriendsUser/Followers/Followers";
+// import Follower from "./components/Users/User/Nav/FriendsUser/Followers/Follower/Follower";
 import SearchPost from "./components/SearchUser/SearchPost";
 
 function App() {
@@ -33,8 +33,8 @@ function App() {
           <Route path="/PostUser" element={<PostUser />} />
           <Route path="/InfoUser" element={<InfoUser />} />
           <Route path="/FriendUser" element={<FriendUser />} />
-          <Route path="/Followers" element={<Followers />} />
-          <Route path="/getUserById/:_id" element={<Follower />} />
+          {/* <Route path="/Followers" element={<Followers />} /> */}
+          {/* <Route path="/getUserById/:_id" element={<Follower />} /> */}
           <Route path="/search/:postName" element={<SearchPost />} />
 
 

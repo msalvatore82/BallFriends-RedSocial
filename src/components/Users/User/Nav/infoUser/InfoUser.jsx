@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import User from "../../User";
 import avatar from "../../../../../Asset/avatar-default.png";
+import avatar1 from "../../../../../Asset/avatar1.jpg";
 
 import "./InfoUser.scss";
 import FriendUser from "../FriendsUser/FriendUser";
@@ -42,7 +43,7 @@ const InfoUser = () => {
         <div className="container-user-info">
           <div className="info-user">
             <div className="avatar-infouser">
-              <img src={avatar} alt="avatar-user" className="avatar-infouser" />
+              <img src={avatar1} alt="avatar-user" className="avatar-infouser" />
             </div>
             <div className="name-mail-infouser">
               <p className="name">{user.user.name} </p>

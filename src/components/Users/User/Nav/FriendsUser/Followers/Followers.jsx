@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 import { getUserById } from "../../../../../../features/users/usersSlice";
-import User from "../../../User";
 import "./Followers.scss";
 
 const Followers = () => {
@@ -19,14 +18,13 @@ const Followers = () => {
   // console.log(users);
 
   return (
-    <div>
+    <div className="container-friends">
       <p> {user.user.followers.length} Followers </p>
       {user.user.followers.map((userFollowers) => (
         <div className="container-card-follower">
           <p
             onClick={() => {
               dispatch(getUserById(userFollowers));
-              navigate(`/getUserById/${userFollowers}`);
             }}
           >
             {userFollowers}

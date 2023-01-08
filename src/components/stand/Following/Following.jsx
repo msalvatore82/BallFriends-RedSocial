@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
 import avatar from "../../../../../../../Asset/avatar-default.png";
 
-import { getUserById } from "../../../../../../../features/users/usersSlice";
+import { getUserById } from "../../../features/users/usersSlice";
 
 const Following = () => {
   const { _id } = useParams();

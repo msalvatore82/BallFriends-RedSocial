@@ -1,8 +1,20 @@
 @import "colors";
 
+
 .container-card-follower{
-    border: 2px red solid;
+    text-align: center;
+    border: 5px solid $backgraund-color;
+    border-radius: 15px;
     margin: 1rem;
     width: 50%;
     cursor: pointer;
+    font-size: 1.5rem;
 }
+.container-frienduser{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 80%;
+    margin: auto;
+   }

@@ -8,7 +8,7 @@
   margin-top: 1rem;
   margin-bottom: 1.5rem;
 
-  .container-post-post{
+  .container-post-post {
     display: flex;
     flex-direction: column;
     text-align: left;
@@ -18,12 +18,10 @@
     margin-top: 1rem;
     font-size: 1rem;
   }
-  .container-post-img{
+  .container-post-img {
     width: 100%;
     padding: 0;
   }
-
-
 
   .container-head-post {
     display: flex;
@@ -32,92 +30,85 @@
     align-items: center;
     gap: 0.5rem;
     margin-left: 0.5rem;
-    .date-post{
-        font-size: 0.8rem;
-        margin-top: 1rem;
-        margin-left: 17rem;
-        color: rgb(185, 185, 185);
-        text-align: right;
-    
-      }
+    .date-post {
+      font-size: 0.8rem;
+      margin-top: 1rem;
+      margin-left: 65%;
+      color: rgb(185, 185, 185);
+      text-align: right;
+    }
   }
-  
 
   .container-post {
     line-height: 8rem;
   }
 
-  .container-post-post:hover{
+  .container-post-post:hover {
     background-color: rgb(241, 241, 241);
-    box-shadow:
-    1px 1px $color-logo,
-    2px 2px $color-logo,
-    3px 3px $color-logo;
--webkit-transform: translateX(-3px);
-transform: translateX(-3px);
-    
-}    cursor: pointer;
+    box-shadow: 1px 1px $color-logo, 2px 2px $color-logo, 3px 3px $color-logo;
+    -webkit-transform: translateX(-3px);
+    transform: translateX(-3px);
   }
-  .ico-lke {
-    color: $color-logo;
-  }
+  cursor: pointer;
+}
+.ico-lke {
+  color: $color-logo;
+}
 
-  .container-counter {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+.container-counter {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  .like-length {
+    font-size: 0.8rem;
+    color: gray;
     align-items: center;
-
-    .like-length {
-      font-size: 0.8rem;
-      color: gray;
-      align-items: center;
-      margin-left: 0.5rem;
-      cursor: pointer;
-    }
-    .comment-length {
-      font-size: 0.8rem;
-      color: gray;
-      align-items: center;
-      margin-right: 0.5rem;
-      border: none;
-      background-color: transparent;
-      cursor: pointer;
-    }
-
-    .comment-length:hover,
-    .like-length:hover{
-        text-decoration:underline 0.08rem;
-        
-      }
+    margin-left: 0.5rem;
+    cursor: pointer;
+  }
+  .comment-length {
+    font-size: 0.8rem;
+    color: gray;
+    align-items: center;
+    margin-right: 0.5rem;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
   }
 
-  .container-like-comment-delete {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+  .comment-length:hover,
+  .like-length:hover {
+    text-decoration: underline 0.08rem;
   }
+}
 
-  .avatar-user {
-    border-radius: 50%;
-    width: 2.5rem;
-    height: 2.5rem;
-    margin-top: 0.2rem;
-  }
-  .constainer-comment-one {
-    display: flex;
-    flex-direction: row;
-    .comment {
-      width: 90%;
-      margin: 0.5rem;
-      line-height: 2.5rem;
-      border-radius: 1rem;
-      background-color: rgb(238, 238, 238);
-    }
-    .container-like-one {
-      margin-top: 0.7rem;
-      margin-left: -1rem;
-      margin-right: 0.5rem;
-    }
-  }
+.container-like-comment-delete {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
 
+.avatar-user-modal {
+  border-radius: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-top: 0.5rem;
+}
+.constainer-comment-one {
+  display: flex;
+  flex-direction: row;
+  .comment {
+    width: 90%;
+    margin: 0.5rem;
+    line-height: 2.5rem;
+    border-radius: 1rem;
+    background-color: rgb(238, 238, 238);
+  }
+  .container-like-one {
+    margin-top: 0.7rem;
+    margin-left: -1rem;
+    margin-right: 0.5rem;
+  }
+}

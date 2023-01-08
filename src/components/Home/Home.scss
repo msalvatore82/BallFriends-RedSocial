@@ -12,11 +12,11 @@
   background-color: $backgraund-color;
 
   .sidebar-left {
-    width: 35%;
+    width: 25%;
     margin-left: 0.5rem;
   }
   .sidebar-rigth {
-    width: 35%;
+    width: 25%;
     margin-right: 0.5rem;
     margin-top: 0.5rem;
 
@@ -24,7 +24,7 @@
   .posts {
     display: flex;
     flex-direction: column;
-    width: 40%;
+    width: 55%;
     gap: 0.5rem;
     margin-top: 1.5rem;
 
