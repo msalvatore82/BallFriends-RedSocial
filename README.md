@@ -67,6 +67,11 @@ Crear el Frontend de la API desarrollado con ateorioridad.
 - Buscador de perfiles de usuario o de posts
 - Que en tu perfil puedas ver tus datos y tus posts
 - Que puedas comentar en las publicaciones
+- El usuario puede dar likes a los comentarios de los posts.
+- El usuario en su perfil puede ver el número de seguidores y número de a cuantos sigue
+- El usuario puede ver quien le sigue y a quién sigue
+- El usuario en su perfil puede ver los posts a los que le ha dado like
+- Implementación de guards
 
 #### ⚔️ Componentes mínimos:
 
@@ -95,11 +100,6 @@ Creo que el mayor desafío que se me presento fue la de trabajar solo, sin la ay
 - CRUD de los comentarios
 - Que solo puedas editar y eliminar los comentarios que tu creas.
 - El usuario puede subir fotos en los posts o cambiar su foto de perfil.
-- El usuario puede dar likes a los comentarios de los posts.
-- El usuario en su perfil puede ver el número de seguidores y número de a cuantos sigue
-- El usuario puede ver quien le sigue y a quién sigue
-- El usuario en su perfil puede ver los posts a los que le ha dado like
-- Implementación de guards
 - Que sea responsive
 
 <!-- Si QUIERE CONTRIBUIR -->
