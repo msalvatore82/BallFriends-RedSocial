@@ -4,6 +4,7 @@ import authService from "./authService";
 const user = JSON.parse(localStorage.getItem("user"));
 const initialState = {
   user: user ? user : null,
+  users: [],
 };
 
 export const authSlice = createSlice({
@@ -19,6 +20,10 @@ export const authSlice = createSlice({
       .addCase(logout.fulfilled, (state) => {
         state.user = null;
       })
+      .addCase(getUsers.fulfilled, (state, action) => {
+        state.users = action.payload;
+      })
+      
      
   },
 });
@@ -55,6 +60,14 @@ export const logout = createAsyncThunk(
     }
   }
 );
+export const getUsers = createAsyncThunk("users/getUser", async() => {
+  try {
+      return await authService.getUsers();
+  } catch (error) {
+      console.error(error);
+  }
+});
+
 
 
 

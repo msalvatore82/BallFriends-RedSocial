@@ -27,11 +27,16 @@ const logout = async () => {
   }
   return res.data;
 };
+const getUsers = async() => {
+  const res = await axios.get(API_URL + "/users/getUser");
+  return res.data;
+};
 
 const authService = {
   register,
   login,
-  logout
+  logout,
+  getUsers
 };
 
 export default authService;

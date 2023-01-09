@@ -11,6 +11,7 @@ import PostUser from "../Postuser/PostUser";
 import { MdModeEdit } from "react-icons/md";
 import { HomeFilled } from "@ant-design/icons";
 import { getInfo } from "../../../../../features/post/postsSlice";
+import MoreAthletes from "../MoreAthletes/MoreAthletes";
 
 const InfoUser = () => {
   const navigate = useNavigate();
@@ -45,6 +46,15 @@ const dispatch =useDispatch()
           >
             <li className="iten-nav-user">Mis Amigos</li>
           </Link>
+          <Link
+              className="iten-nav-user"
+              to="/MoreAthletes "
+              element={<MoreAthletes />}
+            >
+              <li className="iten-nav-user">
+                <span>+</span> Deportistas
+              </li>
+            </Link>
         </ul>
       </div>
       <div>

@@ -155,9 +155,9 @@ export const getInfo = createAsyncThunk("auth/info", async () => {
 
 export const getPostByName = createAsyncThunk(
   "posts/getPostByName",
-  async (postName) => {
+  async (title) => {
     try {
-      return await postsService.getPostByName(postName);
+      return await postsService.getPostByName(title);
     } catch (error) {
       console.error(error);
     }

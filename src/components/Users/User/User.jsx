@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import InfoUser from "./Nav/infoUser/InfoUser";
 import FriendUser from "./Nav/FriendsUser/FriendUser";
 import PostUser from "./Nav/Postuser/PostUser";
+import MoreAthletes from "./Nav/MoreAthletes/MoreAthletes";
 
 const User = () => {
   return (
@@ -13,7 +14,7 @@ const User = () => {
         <div className="cover-img">
           <div>
             <div className="icon-img-cover">
-              <MdAddAPhoto  title="Añadir foto de portada"/> 
+              <MdAddAPhoto title="Añadir foto de portada" />
             </div>
           </div>
         </div>
@@ -53,6 +54,15 @@ const User = () => {
               element={<FriendUser />}
             >
               <li className="iten-nav-user">Mis Amigos</li>
+            </Link>
+            <Link
+              className="iten-nav-user"
+              to="/MoreAthletes "
+              element={<MoreAthletes />}
+            >
+              <li className="iten-nav-user">
+                <span>+</span> Deportistas
+              </li>
             </Link>
           </ul>
         </div>

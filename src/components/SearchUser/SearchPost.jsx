@@ -1,22 +1,29 @@
-import React, { useEffect } from 'react'
-import { useDispatch } from 'react-redux';
-import { useParams } from 'react-router';
-import { getPostByName } from '../../features/post/postsSlice';
-import Post from '../Posts/Post/Post';
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { useParams } from "react-router-dom";
+import { getPostByName } from "../../features/post/postsSlice";
+import { getInfo } from "../../features/users/usersSlice";
+import Post from "../Posts/Post/Post";
+import "./searchPost.scss"
 
 const SearchPost = () => {
-    const { postName } = useParams();
-    const dispatch = useDispatch()
+  const { title } = useParams();
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getPostByName(title));
+  }, [title]);
 
   useEffect(() => {
-    dispatch(getPostByName(postName))
-  }, [postName]);
+    dispatch(getInfo());
+  }, []);
 
   return (
-    <div>
+    <>
+      <div className="container-search">
         <Post />
-    </div>
-  )
-}
+      </div>
+    </>
+  );
+};
 
-export default SearchPost
+export default SearchPost;

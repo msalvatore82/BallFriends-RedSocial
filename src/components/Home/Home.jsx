@@ -1,7 +1,6 @@
 import React from "react";
 import CreatePost from "../CreatePost/CreatePost";
 import Posts from "../Posts/Posts";
-import SidebarLeft from "../SidebarLeft/SidebarLeft";
 import "./Home.scss";
 
 const Home = () => {

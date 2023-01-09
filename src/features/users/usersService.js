@@ -2,12 +2,8 @@ import axios from "axios";
 
 const API_URL = "http://localhost:8080";
 
-const getUsers = async() => {
-    const res = await axios.get(API_URL + "/users/getUser");
-    return res.data;
-};
 
-const getUser = async () => {
+const getInfo = async () => {
     const user = JSON.parse(localStorage.getItem("user"));
     const res = await axios.get(API_URL + "/users/getInfo", {
       headers: {
@@ -70,8 +66,7 @@ const getUser = async () => {
 // };
 
 const usersService = {
-    getUsers,
-    getUser,
+    getInfo,
     getUserById,
     getUserByName,
     // follow,

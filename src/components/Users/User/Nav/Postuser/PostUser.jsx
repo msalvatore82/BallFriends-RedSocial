@@ -5,20 +5,17 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 import post from "../../../../../Asset/post1.jpeg"
 import { getAllPosts } from "../../../../../features/post/postsSlice";
-import { getUsers } from "../../../../../features/users/usersSlice";
 
 import User from "../../User";
 import "./PostUser.scss";
 
 const PostUser = () => {
   const { user } = useSelector((state) => state.users);
-  const { posts } = useSelector((state) => state.posts);
   const navigate = useNavigate();
 
   const dispatch =useDispatch()
   useEffect(() => {
     dispatch(getAllPosts());
-    getUsers()
    }, [])
 
 

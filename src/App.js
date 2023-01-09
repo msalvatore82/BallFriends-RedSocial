@@ -1,5 +1,4 @@
 import React from "react";
-import {user} from "../src/features/users/usersSlice"
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.scss";
 import Header from "./components/Header/Header";
@@ -17,6 +16,7 @@ import Footer from "./components/Footer/Footer";
 import SearchPost from "./components/SearchUser/SearchPost";
 import PrivateZone from "./guards/PrivateZone";
 import { useSelector } from "react-redux";
+import MoreAthletes from "./components/Users/User/Nav/MoreAthletes/MoreAthletes";
 
 
 function App() {
@@ -36,6 +36,7 @@ function App() {
           <Route path="/PostUser" element={<PrivateZone><PostUser /></PrivateZone>} />
           <Route path="/InfoUser" element={<PrivateZone><InfoUser /></PrivateZone>} />
           <Route path="/FriendUser" element={<PrivateZone><FriendUser /></PrivateZone>} />
+          <Route path="/MoreAthletes" element={<PrivateZone><MoreAthletes /></PrivateZone>} />
           <Route path="/search/:postName" element={<SearchPost />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

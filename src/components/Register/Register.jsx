@@ -8,8 +8,9 @@ import {
   UserOutlined,
   QuestionCircleFilled,
 } from "@ant-design/icons";
+import "./Register.scss";
 
-const Register = ({ visible, setVisible })=> {
+const Register = ({ visible, setVisible }) => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -42,21 +43,32 @@ const Register = ({ visible, setVisible })=> {
     dispatch(register(formData));
     setVisible(false);
     clearState();
-  
+  };
+  const handleCancel = () => {
+    setVisible(false);
   };
 
   return (
-    <div>
+    <div className="register">
       <>
-        <Modal title="Edit Book" visible={visible} footer={[]}>
-          <div>
-            <h2>Registrarte</h2>
+        <Modal
+          open={visible}
+          onCancel={handleCancel}
+          footer={[
+            <div>
+              <button className="btns" type="primary" onClick={onSubmit}>
+                Crear Usuario
+              </button>
+            </div>,
+          ]}
+        >
+          <div className="head-register">
+            <h2>Registro BallFriends</h2>
             <h5>Es rapido y facil</h5>
           </div>
           <>
             <Form>
-              <div></div>
-              <div>
+              <div className="name-surname">
                 <Form.Item>
                   <Input
                     type="text"
@@ -68,42 +80,45 @@ const Register = ({ visible, setVisible })=> {
                   />
                 </Form.Item>
               </div>
-              <div>
+              <div className="email">
+                <Form.Item
+                  placeholder="E-mail"
+                  rules={[
+                    {
+                      type: "email",
+                      message: "The input is not valid E-mail!",
+                    },
+                    {
+                      required: true,
+                      message: "Please input your E-mail!",
+                    },
+                  ]}
+                >
+                  <Input
+                    placeholder="Correo electronico"
+                    type="email"
+                    name="email"
+                    value={email}
+                    onChange={onChange}
+                  />
+                </Form.Item>
+              </div>
+              <div className="password">
                 <Form.Item>
-                  <Form.Item
-                    placeholder="E-mail"
-                    rules={[
-                      {
-                        type: "email",
-                        message: "The input is not valid E-mail!",
-                      },
-                      {
-                        required: true,
-                        message: "Please input your E-mail!",
-                      },
-                    ]}
-                  >
-                    <Input
-                      type="email"
-                      name="email"
-                      value={email}
-                      onChange={onChange}
-                    />
-                    <Input.Password
-                      type="password"
-                      name="password"
-                      value={password}
-                      onChange={onChange}
-                      placeholder="Password"
-                      iconRender={(visible) =>
-                        visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
-                      }
-                    />
-                  </Form.Item>
+                  <Input.Password
+                    type="password"
+                    name="password"
+                    value={password}
+                    onChange={onChange}
+                    placeholder="Password"
+                    iconRender={(visible) =>
+                      visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
+                    }
+                  />
                 </Form.Item>
               </div>
 
-              <div>
+              <div className="genre">
                 <p>
                   Genero <QuestionCircleFilled />
                 </p>
@@ -117,30 +132,29 @@ const Register = ({ visible, setVisible })=> {
                   />
                 </Form.Item>
               </div>
-              <div>
-                <p>
-                  Es posible que usuarios de nuestro servicio hayan subido tu
-                  información de contacto a Facebook. Más información.
-                </p>
-              </div>
-              <div>
-                <p>
-                  Al hacer clic en Registrarte, aceptas nuestras Condiciones.
-                  Obtén más información sobre cómo recogemos, usamos y
-                  compartimos tu información en la Política de privacidad, así
-                  como el uso que hacemos de las cookies y tecnologías similares
-                  en nuestra Política de cookies. Es posible que te enviemos
-                  notificaciones por SMS, que podrás desactivar cuando quieras.
-                </p>
+              <div className="polity">
+                <div>
+                  <p>
+                    Es posible que usuarios de nuestro servicio hayan subido tu
+                    información de contacto a Facebook. Más información.
+                  </p>
+                </div>
+                <div>
+                  <p>
+                    Al hacer clic en Registrarte, aceptas nuestras Condiciones.
+                    Obtén más información sobre cómo recogemos, usamos y
+                    compartimos tu información en la Política de privacidad, así
+                    como el uso que hacemos de las cookies y tecnologías
+                    similares en nuestra Política de cookies. Es posible que te
+                    enviemos notificaciones por SMS, que podrás desactivar
+                    cuando quieras.
+                  </p>
+                </div>
               </div>
             </Form>
-            <Button type="primary" onClick={onSubmit}> Crear Usuario</Button>
-            <Button type="primary"> Cancelar</Button>
           </>
-          
         </Modal>
-      </> 
-      
+      </>
     </div>
   );
 };

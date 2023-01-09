@@ -4,21 +4,15 @@ import userService from "./usersService";
 const initialState = {
     users: [],
     user: {}
+    
 };
 
-export const getUsers = createAsyncThunk("users/getUser", async() => {
-    try {
-        return await userService.getUsers();
-    } catch (error) {
-        console.error(error);
-    }
-});
 
-export const getUser = createAsyncThunk(
+export const getInfo = createAsyncThunk(
     "users/getInfo",
     async (user) => {
       try {
-        return await userService.getUser(user);
+        return await userService.getInfo(user);
       } catch (error) {
         console.error(error);
       }
@@ -80,6 +74,7 @@ export const usersSlice = createSlice({
             state.isError = false;
             state.isSuccess = false;
             state.message = "";
+            state.users = [];
         },
         resetSearch: (state) => {
             state.users = []
@@ -87,10 +82,8 @@ export const usersSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder
-            .addCase(getUsers.fulfilled, (state, action) => {
-                state.users = action.payload;
-            })
-            .addCase(getUser.fulfilled, (state, action) => {
+       
+            .addCase(getInfo.fulfilled, (state, action) => {
                 state.user = action.payload;
             })
             .addCase(getUserByName.fulfilled,(state,action)=>{
@@ -124,5 +117,5 @@ export const usersSlice = createSlice({
     },
 });
 
-export const { reset, resetSearch } = usersSlice.actions;
+export const { reset, resetSearch, users } = usersSlice.actions;
 export default usersSlice.reducer;

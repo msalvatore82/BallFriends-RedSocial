@@ -11,7 +11,7 @@ import avatar from "../../../Asset/avatar-default.png";
 import post from "../../../Asset/post1.jpeg"
 import EditPost from "../../EditPost/EditPost";
 import { useNavigate } from "react-router";
-import { getUsers, reset } from "../../../features/users/usersSlice";
+import { reset } from "../../../features/users/usersSlice";
 
 const Post = () => {
   const { posts } = useSelector((state) => state.posts);
@@ -28,7 +28,6 @@ const Post = () => {
 
   useEffect(() => {
     dispatch(getAllPosts());
-    getUsers()
     dispatch(reset())
   }, []);
   

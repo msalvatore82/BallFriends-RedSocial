@@ -76,8 +76,8 @@ const getPostById = async (_id)=>{
   return res.data;
   };
 
-const getPostByName = async(postTitle)=>{
-  const res = await axios.get(API_URL + "/posts/getPostByName/" + postTitle)
+const getPostByName = async(title)=>{
+  const res = await axios.get(API_URL + "/posts/getPostByName/" + title)
   return res.data
 }
 

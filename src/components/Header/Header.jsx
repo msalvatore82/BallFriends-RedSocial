@@ -29,7 +29,7 @@ const Header = () => {
   };
 
   useNavigate();
-  const { Search } = Input;
+  const { search } = Input;
 
   const onLogout = (e) => {
     e.preventDefault();
@@ -52,7 +52,7 @@ const Header = () => {
                   className="input-search"
                   onKeyUp={handleChange}
                   placeholder="Buscar publicación"
-                  name="text"
+                  name="search"
                 />
               </div>
               <div className="nav-central"></div>
