@@ -1,4 +1,5 @@
 import React from "react";
+import {user} from "../src/features/users/usersSlice"
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.scss";
 import Header from "./components/Header/Header";
@@ -15,14 +16,16 @@ import NotFound from "./components/NotFound/NotFound";
 import Footer from "./components/Footer/Footer";
 import SearchPost from "./components/SearchUser/SearchPost";
 import PrivateZone from "./guards/PrivateZone";
+import { useSelector } from "react-redux";
 
 
 function App() {
+  const { user } = useSelector((state) => state.auth);
 
   return (
     <div className="App">
       <BrowserRouter>
-         <Header />
+      {user ? <Header /> : null}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/register" element={<Register />} />
@@ -36,7 +39,7 @@ function App() {
           <Route path="/search/:postName" element={<SearchPost />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
-        <Footer />
+        {user ?  <Footer /> : null}
       </BrowserRouter>
     </div>
   );

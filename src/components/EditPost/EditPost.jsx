@@ -2,14 +2,13 @@ import { Button, Modal, Form, Input } from "antd";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { useParams } from "react-router";
-import { updatePost } from "../../features/post/postsSlice";
-import "./EditPost.scss"
+import {  useParams } from "react-router";
+import { getPostById, updatePost } from "../../features/post/postsSlice";
+import "./EditPost.scss";
 
 const EditPost = ({ visible, setVisible }) => {
   const { _id } = useParams();
   const { post } = useSelector((state) => state.posts);
-
   const dispatch = useDispatch();
   const [form] = Form.useForm();
 
@@ -17,7 +16,6 @@ const EditPost = ({ visible, setVisible }) => {
     const postEdit = {
       ...post,
     };
-
     form.setFieldsValue(postEdit);
   }, [post]);
 
@@ -32,6 +30,8 @@ const EditPost = ({ visible, setVisible }) => {
   const handleCancel = () => {
     setVisible(false);
   };
+
+
 
   return (
     <Modal

@@ -1,5 +1,5 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import User from "../../User";
 import avatar from "../../../../../Asset/avatar-default.png";
 import avatar1 from "../../../../../Asset/avatar1.jpg";
@@ -10,11 +10,19 @@ import { Link, useNavigate } from "react-router-dom";
 import PostUser from "../Postuser/PostUser";
 import { MdModeEdit } from "react-icons/md";
 import { HomeFilled } from "@ant-design/icons";
+import { getInfo } from "../../../../../features/post/postsSlice";
 
 const InfoUser = () => {
   const navigate = useNavigate();
-
+const dispatch =useDispatch()
   const { user } = useSelector((state) => state.users);
+  useEffect(() => {
+   dispatch(getInfo()) 
+  }, [])
+  
+  if(!user.user){
+    return <h1>cargando</h1>
+  }
   console.log(user);
   return (
     <div>
@@ -46,8 +54,8 @@ const InfoUser = () => {
               <img src={avatar1} alt="avatar-user" className="avatar-infouser" />
             </div>
             <div className="name-mail-infouser">
-              <p className="name">{user.user.name} </p>
-              <p className="mail">{user.user.email} </p>
+              <p className="name">{user?.user.name} </p>
+              <p className="mail">{user?.user.email} </p>
             </div>
             <div className="about-me">
               <h2>Sobre Mi</h2>
@@ -62,8 +70,8 @@ const InfoUser = () => {
               </button>
             </div>
             <p className="count-follower-following">
-              {user.user.seguidos.length} following -{" "}
-              {user.user.followers.length} followers{" "}
+              {user?.user.seguidos.length} following -{" "}
+              {user?.user.followers.length} followers{" "}
             </p>
           </div>
           <div className="info-detail">
@@ -82,19 +90,19 @@ const InfoUser = () => {
             <div>
               <div className="info-activity">
                 <div className="item-activity">
-                  {user.user.likes.length} likes en post{" "}
+                  {user?.user.likes.length} likes en post{" "}
                 </div>
                 <div className="item-activity">
-                  {user.user.postIds.length} publicaciones{" "}
+                  {user?.user.postIds.length} publicaciones{" "}
                 </div>
               </div>
               <div className="item-activity-post">
-                {user.user.postIds.map((element, idx) => (
+                {user?.user.postIds.map((element, idx) => (
                   <div
                     key={idx}
-                    onClick={() => navigate(`/post/${element._id}`)}
+                    onClick={() => navigate(`/post/${element?._id}`)}
                   >
-                    <div className="post-one-user"> {element.post} </div>
+                    <div className="post-one-user"> {element?.post} </div>
                   </div>
                 ))}{" "}
               </div>

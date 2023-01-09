@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
+import { getFID } from "web-vitals";
+import { getInfo } from "../../../../../../features/post/postsSlice";
 import { getUserById } from "../../../../../../features/users/usersSlice";
 import "./Followers.scss";
 
@@ -9,6 +11,7 @@ const Followers = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  console.log(user);
 
   const showModal = (_id) => {
     dispatch(getUserById(_id));
@@ -19,16 +22,15 @@ const Followers = () => {
 
   return (
     <div className="container-friends">
-      <p> {user.user.followers.length} Followers </p>
-      {user.user.followers.map((userFollowers) => (
+      <p> {user?.user.followers.length} Followers </p>
+      {user?.user.followers.map((userFollowers) => (
         <div className="container-card-follower">
           <p
-            onClick={() => {
-              dispatch(getUserById(userFollowers));
-            }}
+            // onClick={() => {
+            //   dispatch(getInfo(userFollowers));
+            // }}
           >
-            {userFollowers}
-            {console.log(userFollowers)}
+            <p className="name-follower" >{userFollowers?.name}</p>
           </p>
         </div>
       ))}

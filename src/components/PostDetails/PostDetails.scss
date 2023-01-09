@@ -30,7 +30,19 @@
     justify-content: flex-start;
     align-items: center;
     gap: 0.5rem;
-    margin-left: -19rem;
+    margin-top: 0.8rem;
+    margin-bottom: -0.8rem;
+    margin-left: -80%;
+
+   
+  }
+
+  .date-post{
+    width: 100%;
+    display: flex;
+    justify-content:right;
+    font-size: 0.8rem;
+    margin-right: 1rem;
   }
 
   .container-post-detail {
@@ -38,7 +50,7 @@
 
     .btn-edit-post {
       margin-top: -2.5rem;
-      margin-left: 24rem;
+      margin-left: 45rem;
     }
 
     .container-post-detail-text {
@@ -112,9 +124,17 @@
       background-color: rgb(238, 238, 238);
     }
     .container-like-one-detail {
+      display: flex;
+      flex-direction: row;
       margin-top: 0.7rem;
-      margin-left: -1rem;
+      margin-left: 0.5rem;
       margin-right: 0.5rem;
+    }
+    .like-coment:hover,
+    .delete-coment:hover
+     {
+      cursor: pointer;
+
     }
   }
 }

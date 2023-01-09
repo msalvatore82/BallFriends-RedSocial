@@ -61,7 +61,7 @@ const Header = () => {
                   margin: 15,
                 }}
               >
-                <Link to="/home">
+                <Link to="/">
                   <HomeFilled
                     title="inicio"
                     className="logo-home"

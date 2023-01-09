@@ -5,21 +5,19 @@ import { getUserById } from "../../../../../../features/users/usersSlice";
 import "./Following.scss";
 
 const Following = () => {
-  const { user} = useSelector((state) => state.users);
+  const { user } = useSelector((state) => state.users);
   const dispatch = useDispatch();
-
   return (
-    <div  className="container-friends">
-      <p> {user.user.seguidos.length} Following </p>
-      {user.user.seguidos.map((userFollowing) => (
+    <div className="container-friends">
+      <p> {user?.user.seguidos.length} Following </p>
+      {user?.user.seguidos.map((userFollowing) => (
         <div className="container-card-following">
-          <p
-            onClick={() => {
-              dispatch(getUserById(userFollowing));
-            }}
-          >
-            {userFollowing}
-            {console.log(userFollowing)}
+          <p className="name-following"
+            // onClick={() => {
+            //   dispatch(getUserById(userFollowing));
+            // }}
+          > 
+            {userFollowing?.name}
           </p>
         </div>
       ))}

@@ -1,17 +1,17 @@
-/* eslint-disable no-restricted-globals */
 import { AiOutlineDislike, AiOutlineLike, AiTwotoneLike } from "react-icons/ai";
 import { BiCommentDots } from "react-icons/bi";
 import { Button } from "antd";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./Post.scss";
-import { deletePost, getPostById, like } from "../../../features/post/postsSlice";
+import { deletePost, disLike, getAllPosts, getPostById, like } from "../../../features/post/postsSlice";
 import CreateComment from "../../PostDetails/CreateComment/CreateComment";
 import { MdDeleteForever } from "react-icons/md";
 import avatar from "../../../Asset/avatar-default.png";
 import post from "../../../Asset/post1.jpeg"
 import EditPost from "../../EditPost/EditPost";
 import { useNavigate } from "react-router";
+import { getUsers, reset } from "../../../features/users/usersSlice";
 
 const Post = () => {
   const { posts } = useSelector((state) => state.posts);
@@ -20,12 +20,18 @@ const Post = () => {
   const dispatch = useDispatch();
   const [visible, setVisible] = useState(false);
   const [isModalVisible, setIsModalVisible] = useState(false);
-
-
+  
   const showModal = (_id) => {
     dispatch(getPostById(_id));
     setIsModalVisible(true);
   };
+
+  useEffect(() => {
+    dispatch(getAllPosts());
+    getUsers()
+    dispatch(reset())
+  }, []);
+  
 
   const getDateDetail = (date) => {
     const dateDetail = new Date(date);
@@ -78,8 +84,8 @@ const Post = () => {
                   }}
                 />
               }
-              {element.likes.length}
-              {element.likes.length === 1 ? " like" : " likes"}
+              {element?.likes.length}
+              {element?.likes.length === 1 ? " like" : " likes"}
               
             </p>
           </div>
@@ -106,7 +112,7 @@ const Post = () => {
                 }
               />
               <Button
-                onClick={() => {if (user) dispatch(like(element?._id)); else navigate("/login");}}
+                onClick={() => {if (user) dispatch(disLike(element?._id)); else navigate("/login");}}
                 style={{
                   border: "none",
                   background: "none",
@@ -168,7 +174,7 @@ const Post = () => {
                   <div className="constainer-comment-one" >
                     <p className="comment">{item.comment}</p>
                     <div className="container-like-one">
-                      <Button
+                      {/* <Button
                         onClick={() => dispatch(like(element?._id))}
                         style={{
                           border: "none",
@@ -183,7 +189,7 @@ const Post = () => {
                             }}
                           />
                         }
-                      />
+                      /> */}
                     </div>
                   </div>
                 ) : null;
