@@ -173,22 +173,6 @@ const Post = () => {
                   <div className="constainer-comment-one" >
                     <p className="comment">{item.comment}</p>
                     <div className="container-like-one">
-                      {/* <Button
-                        onClick={() => dispatch(like(element?._id))}
-                        style={{
-                          border: "none",
-                          marginLeft: 15,
-                        }}
-                        icon={
-                          <AiOutlineLike
-                            style={{
-                              color: "gray",
-                              fontSize: "15px",
-                              border: "none",
-                            }}
-                          />
-                        }
-                      /> */}
                     </div>
                   </div>
                 ) : null;
@@ -196,7 +180,6 @@ const Post = () => {
             </div>
           </div>
           <div>
-            {/* {element} */}
             <EditPost visible={isModalVisible} setVisible={setIsModalVisible} />
           </div>
         </div>

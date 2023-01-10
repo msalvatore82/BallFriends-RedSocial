@@ -39,33 +39,6 @@ export const getInfo = createAsyncThunk(
 
 
 
-// export const follow = createAsyncThunk("users/follow", async(_id) => {
-//     try {
-//         return await userService.follow(_id);
-//     } catch (error) {
-//         console.error(error);
-//     }
-// });
-
-// export const unfollow = createAsyncThunk("users/unfollow", async(_id) => {
-//     try {
-//         return await userService.unfollow(_id);
-//     } catch (error) {
-//         console.error(error);
-//     }
-// });
-
-
-
-// export const deleteUsers = createAsyncThunk("users/delete", async(name) => {
-//     try {
-//         return await userService.deleteUsers(name);
-//     } catch (error) {
-//         console.error(error);
-//     }
-// });
-
-
 export const usersSlice = createSlice({
     name: "users",
     initialState,
@@ -92,28 +65,7 @@ export const usersSlice = createSlice({
               .addCase(getUserById.fulfilled, (state, action) => {
                 state.user = action.payload;
             })
-            // .addCase(follow.fulfilled, (state, action) => {
-            //     const users = state.users.map((user) => {
-            //         if (user._id === action.payload.user._id) {
-            //             user = action.payload.user;
-            //         }
-            //         return user;
-            //     });
-            //     state.users = users;
-            // })
-            // .addCase(unfollow.fulfilled, (state, action) => {
-            //     const users = state.users.map((user) => {
-            //         if (user._id === action.payload._id) {
-            //             user = action.payload;
-            //         }
-            //         return user;
-            //     });
-            //     state.users = users;
-            // })
-           
-            // .addCase(deleteUsers.fulfilled, (state, action) => {
-            //     state.users = state.users.filter((user) => user._id !== action.payload.user._id)
-            // })
+
     },
 });
 

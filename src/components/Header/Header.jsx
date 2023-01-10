@@ -13,7 +13,7 @@ import "./Header.scss";
 import isolgo from "../../Asset/isologo.png";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { AiOutlineLogout, AiOutlineSearch } from "react-icons/ai";
+import { AiOutlineLogout } from "react-icons/ai";
 import { logout } from "../../features/auth/authSlice";
 
 const Header = () => {
@@ -100,7 +100,6 @@ const Header = () => {
               <div>
                 <Input
                   placeholder="Buscar Deportistas"
-                  //   onSearch={onSearch}
                   style={{
                     width: 200,
                   }}

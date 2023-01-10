@@ -2,7 +2,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import commentService from "./commentService";
 
-// const user = JSON.parse(localStorage.getItem("user"));
 const initialState = {
   comments: [],
   isLoading: false,
@@ -87,23 +86,6 @@ export const commentSlice = createSlice({
           return comment;
         });
       });
-    //     .addCase(like.fulfilled,(state,action)=>{
-    //       state.posts = state.posts.map( post =>{
-    //           if(post._id == action.payload._id){
-    //               post = action.payload
-    //           }
-    //           return post
-    //       })
-    //     });
-    //     .addCase(getPostById.fulfilled,(state,action)=>{
-    //         state.post = action.payload
-    //     })
-    //     .addCase(getPostByName.fulfilled,(state,action)=>{
-    //       state.posts = action.payload
-    //     })
-    //     .addCase(destroyPostById.fulfilled,(state,action)=>{
-    //       state.posts = state.posts.filter(post => post.id !== +action.payload.id)
-    //     })
   },
 });
 

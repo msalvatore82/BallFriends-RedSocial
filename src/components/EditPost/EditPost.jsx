@@ -1,9 +1,9 @@
-import { Button, Modal, Form, Input } from "antd";
+import {  Modal, Form, Input } from "antd";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import {  useParams } from "react-router";
-import { getPostById, updatePost } from "../../features/post/postsSlice";
+import { updatePost } from "../../features/post/postsSlice";
 import "./EditPost.scss";
 
 const EditPost = ({ visible, setVisible }) => {

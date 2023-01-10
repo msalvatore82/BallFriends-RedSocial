@@ -2,7 +2,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import postsService from "./postsService";
 
-// const user = JSON.parse(localStorage.getItem("user"));
 const initialState = {
   posts: [],
   isLoading: false,

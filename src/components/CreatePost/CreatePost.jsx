@@ -1,13 +1,12 @@
 import { Form, Input, Modal } from "antd";
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { createPost, getAllPosts } from "../../features/post/postsSlice";
 import avatar from "../../Asset/avatar-default.png";
 
 import "./CreatePost.scss";
 
 const CreatePost = () => {
-  const { user } = useSelector((state) => state.users);
   const [loading, setLoading] = useState(false);
   const [open, setVisible] = useState(false);
   const [postData, setPostData] = useState({
@@ -80,7 +79,6 @@ const CreatePost = () => {
                 alt=""
                 srcset=""
               />
-              {/* <p>{user.user.name}</p> */}
               <p>usuario</p>
             </div>
             <Form.Item
@@ -103,8 +101,6 @@ const CreatePost = () => {
               <Input
                 type="file"
                 className="input-img-post"
-                // name="img"
-                // value={img}
                 onChange={onChange}
               />
             </Form.Item>
