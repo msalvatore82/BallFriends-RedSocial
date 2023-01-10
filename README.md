@@ -50,7 +50,7 @@ $ npm start
 - NodeJS
 - MongoDB
 - Sequelize
-- AWS Web Service (Para el despliegue)
+- VERCEL / AWS Web Service (Para el despliegue)
 - Axios
 - Ant-Design
 - Guards
